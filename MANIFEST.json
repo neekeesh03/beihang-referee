@@ -1,6 +1,6 @@
 {
   "name": "Beihang Referee",
-  "build_date": "2026-10-07",
+  "build_date": "2026-10-08",
   "description": "Evidence-grounded agentic peer review for scientific manuscripts",
   "skills": 56,
   "agents": 24,
@@ -56,7 +56,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "size": 1390
+      "size": 1369
     },
     {
       "path": ".github/workflows/package.yml",
@@ -2264,7 +2264,7 @@
     },
     {
       "path": "scripts/build_release.py",
-      "size": 3413
+      "size": 3700
     },
     {
       "path": "scripts/build_single_prompt.py",
@@ -2276,7 +2276,7 @@
     },
     {
       "path": "scripts/rebuild_package_metadata.py",
-      "size": 2679
+      "size": 4321
     },
     {
       "path": "scripts/run_ablation_benchmark.py",
@@ -2300,7 +2300,7 @@
     },
     {
       "path": "scripts/validate_package.py",
-      "size": 14417
+      "size": 14394
     },
     {
       "path": "skills/00_policy_compliance/SKILL.md",
