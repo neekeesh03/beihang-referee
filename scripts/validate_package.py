@@ -98,7 +98,7 @@ if compile_result.returncode:print(compile_result.stdout,compile_result.stderr);
 # Verify that current packaging metadata can actually produce an installable wheel.
 import tempfile
 with tempfile.TemporaryDirectory(prefix='referee-wheel-smoke-') as wheel_dir:
-    wheel_result=subprocess.run([sys.executable,'-m','pip','wheel','.', '--no-deps','--no-build-isolation','-w',wheel_dir],cwd=root,capture_output=True,text=True)
+    wheel_result=subprocess.run([sys.executable,'-m','pip','wheel','.', '--no-deps','-w',wheel_dir],cwd=root,capture_output=True,text=True)
     if wheel_result.returncode:
         print('Wheel build failed')
         print(wheel_result.stdout, wheel_result.stderr)

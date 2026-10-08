@@ -8,14 +8,42 @@ from datetime import date
 root = Path(__file__).resolve().parents[1]
 subprocess.run([sys.executable, str(root / 'scripts' / 'sync_runtime_assets.py')], check=True)
 subprocess.run([sys.executable, str(root / 'scripts' / 'build_single_prompt.py')], check=True)
+# Build the release file list from version-controlled sources rather than a
+# recursive directory scan. A scan can accidentally ship ignored private data,
+# such as .env, review manuscripts, credentials or local run artifacts.
 exclude = {'MANIFEST.json', 'checksums.sha256'}
-ignored_parts = {'__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache', '.git', 'build', '.venv', 'venv', 'release-dist', 'wheelhouse'}
+forbidden_parts = {'.git', '.venv', 'venv', 'env', 'runs', 'artifacts', '.referee',
+                   'release-dist', 'wheelhouse', 'build', '__pycache__',
+                   '.pytest_cache', '.mypy_cache', '.ruff_cache'}
+forbidden_suffixes = ('.pem', '.key', '.p12', '.pfx', '.sqlite', '.sqlite3', '.pyc')
+
+if (root / '.git').exists():
+    # Use tracked/staged files only. New source files must be `git add`ed
+    # before creating release metadata; .gitignore is respected by Git.
+    listed = subprocess.run(['git', '-C', str(root), 'ls-files', '-z'],
+                            check=True, capture_output=True).stdout
+    candidates = [Path(x.decode('utf-8')) for x in listed.split(b'\0') if x]
+else:
+    # GitHub's downloadable source ZIP contains no .git. Its previously
+    # frozen manifest is the allowlist, so added local files cannot leak.
+    frozen_manifest = json.loads((root / 'MANIFEST.json').read_text(encoding='utf-8'))
+    candidates = [Path(item['path']) for item in frozen_manifest['files']]
+
 files = []
-for p in sorted(x for x in root.rglob('*') if x.is_file()):
-    rel_path = p.relative_to(root)
+for rel_path in sorted(set(candidates), key=lambda p: p.as_posix()):
     rel = rel_path.as_posix()
-    if rel in exclude or rel.endswith('.pyc') or any(part in ignored_parts or part.endswith('.egg-info') for part in rel_path.parts):
+    if rel in exclude:
         continue
+    if rel_path.is_absolute() or '..' in rel_path.parts:
+        raise RuntimeError(f'Unsafe release path: {rel}')
+    if (any(part in forbidden_parts or part.endswith('.egg-info') for part in rel_path.parts)
+            or (rel_path.name.startswith('.env') and rel_path.name != '.env.example')
+            or rel_path.name.endswith(forbidden_suffixes)
+            or rel_path.name == '.DS_Store'):
+        raise RuntimeError(f'Private or generated file tracked in release sources: {rel}')
+    p = root / rel_path
+    if p.is_symlink() or not p.is_file() or not p.resolve().is_relative_to(root):
+        raise RuntimeError(f'Missing, symlinked, or unsafe release source: {rel}')
     files.append({'path': rel, 'size': p.stat().st_size})
 
 def count_jsonl(path):
