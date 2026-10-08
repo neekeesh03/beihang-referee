@@ -1,0 +1,145 @@
+[
+  {
+    "name": "valid_major",
+    "anchors": [
+      "A001"
+    ],
+    "expect_valid": true,
+    "concern": {
+      "concern_id": "MC001",
+      "title": "Valid concern",
+      "severity": "major",
+      "claim_ids": [
+        "C001"
+      ],
+      "evidence_anchor_ids": [
+        "A001"
+      ],
+      "failure_mechanism": "The evidence does not identify the claimed effect.",
+      "scientific_consequence": "The central interpretation is unsupported.",
+      "minimum_resolution": "Narrow the claim or add identifying evidence.",
+      "closure_criterion": "Claim scope matches identified evidence.",
+      "steelman_survives": true,
+      "reviewer_confidence": 0.9,
+      "steelman": "The authors may have a favorable interpretation that reduces the apparent problem.",
+      "steelman_survival_reason": "The documented scientific limitation remains under that favorable interpretation.",
+      "external_verification_required": false,
+      "uncertainties": [],
+      "suggested_validation_checks": []
+    }
+  },
+  {
+    "name": "missing_anchor",
+    "anchors": [
+      "A001"
+    ],
+    "expect_valid": false,
+    "concern": {
+      "concern_id": "MC002",
+      "title": "No anchor",
+      "severity": "major",
+      "claim_ids": [
+        "C001"
+      ],
+      "evidence_anchor_ids": [],
+      "failure_mechanism": "Failure",
+      "scientific_consequence": "Consequence",
+      "minimum_resolution": "Fix",
+      "closure_criterion": "Closed",
+      "steelman_survives": true,
+      "reviewer_confidence": 0.9,
+      "steelman": "The authors may have a favorable interpretation that reduces the apparent problem.",
+      "steelman_survival_reason": "The documented scientific limitation remains under that favorable interpretation.",
+      "external_verification_required": false,
+      "uncertainties": [],
+      "suggested_validation_checks": []
+    }
+  },
+  {
+    "name": "unknown_anchor",
+    "anchors": [
+      "A001"
+    ],
+    "expect_valid": false,
+    "concern": {
+      "concern_id": "MC003",
+      "title": "Invented anchor",
+      "severity": "major",
+      "claim_ids": [
+        "C001"
+      ],
+      "evidence_anchor_ids": [
+        "A404"
+      ],
+      "failure_mechanism": "Failure",
+      "scientific_consequence": "Consequence",
+      "minimum_resolution": "Fix",
+      "closure_criterion": "Closed",
+      "steelman_survives": true,
+      "reviewer_confidence": 0.9,
+      "steelman": "The authors may have a favorable interpretation that reduces the apparent problem.",
+      "steelman_survival_reason": "The documented scientific limitation remains under that favorable interpretation.",
+      "external_verification_required": false,
+      "uncertainties": [],
+      "suggested_validation_checks": []
+    }
+  },
+  {
+    "name": "missing_closure",
+    "anchors": [
+      "A001"
+    ],
+    "expect_valid": false,
+    "concern": {
+      "concern_id": "MC004",
+      "title": "No closure",
+      "severity": "major",
+      "claim_ids": [
+        "C001"
+      ],
+      "evidence_anchor_ids": [
+        "A001"
+      ],
+      "failure_mechanism": "Failure",
+      "scientific_consequence": "Consequence",
+      "minimum_resolution": "Fix",
+      "closure_criterion": "",
+      "steelman_survives": true,
+      "reviewer_confidence": 0.9,
+      "steelman": "The authors may have a favorable interpretation that reduces the apparent problem.",
+      "steelman_survival_reason": "The documented scientific limitation remains under that favorable interpretation.",
+      "external_verification_required": false,
+      "uncertainties": [],
+      "suggested_validation_checks": []
+    }
+  },
+  {
+    "name": "fails_steelman",
+    "anchors": [
+      "A001"
+    ],
+    "expect_valid": false,
+    "concern": {
+      "concern_id": "MC005",
+      "title": "Overstated",
+      "severity": "major",
+      "claim_ids": [
+        "C001"
+      ],
+      "evidence_anchor_ids": [
+        "A001"
+      ],
+      "failure_mechanism": "Failure",
+      "scientific_consequence": "Consequence",
+      "minimum_resolution": "Fix",
+      "closure_criterion": "Closed",
+      "steelman_survives": false,
+      "reviewer_confidence": 0.9,
+      "steelman": "The authors may have a favorable interpretation that reduces the apparent problem.",
+      "steelman_survival_reason": "The documented scientific limitation remains under that favorable interpretation.",
+      "external_verification_required": false,
+      "uncertainties": [],
+      "suggested_validation_checks": []
+    }
+  }
+]

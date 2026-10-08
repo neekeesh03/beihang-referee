@@ -1,0 +1,7 @@
+{
+  "mode": "standard",
+  "review_mode": "editorial_screen",
+  "specialist_limit": 4,
+  "literature_query_budget": 4,
+  "max_major_comments": 8
+}

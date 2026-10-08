@@ -1,0 +1,48 @@
+{
+  "name": "CONSORT family",
+  "routing_terms": [
+    "randomized",
+    "randomised",
+    "clinical trial",
+    "parallel trial"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "registration",
+      "label": "trial registration",
+      "terms": [
+        "registration",
+        "clinicaltrials",
+        "registry"
+      ]
+    },
+    {
+      "id": "randomization",
+      "label": "randomization method",
+      "terms": [
+        "randomization",
+        "randomisation",
+        "allocation"
+      ]
+    },
+    {
+      "id": "flow",
+      "label": "participant flow",
+      "terms": [
+        "flow diagram",
+        "enrollment",
+        "enrolment"
+      ]
+    },
+    {
+      "id": "harms",
+      "label": "harms/adverse events",
+      "terms": [
+        "adverse event",
+        "harms"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

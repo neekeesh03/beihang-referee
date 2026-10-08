@@ -1,0 +1,47 @@
+{
+  "name": "STROBE family",
+  "routing_terms": [
+    "cohort",
+    "case-control",
+    "cross-sectional",
+    "observational"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "setting",
+      "label": "setting/participants",
+      "terms": [
+        "setting",
+        "participants",
+        "population"
+      ]
+    },
+    {
+      "id": "variables",
+      "label": "variables/exposures",
+      "terms": [
+        "exposure",
+        "outcome",
+        "covariate"
+      ]
+    },
+    {
+      "id": "bias",
+      "label": "bias",
+      "terms": [
+        "bias",
+        "confounding"
+      ]
+    },
+    {
+      "id": "missing",
+      "label": "missing data",
+      "terms": [
+        "missing data",
+        "imputation"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

@@ -1,0 +1,7 @@
+{
+  "mode": "deep",
+  "review_mode": "revision",
+  "enable_literature_search": true,
+  "enable_reliability_pass": true,
+  "enable_provenance_audit": true
+}

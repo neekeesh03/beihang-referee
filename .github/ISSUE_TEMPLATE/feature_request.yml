@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose a focused improvement to Referee
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or workflow gap
+      description: What is difficult or impossible today? Describe the user/scientific workflow rather than only the desired implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: What should Referee do differently?
+    validations:
+      required: true
+  - type: textarea
+    id: safeguards
+    attributes:
+      label: Scientific / security implications
+      description: Could this affect concern admission, evidence provenance, confidentiality, provider cost, or reproducibility?
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This request does not require weakening evidence/provenance safeguards to work.
+          required: true

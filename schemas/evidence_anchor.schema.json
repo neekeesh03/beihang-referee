@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidence_anchor.schema.json",
+  "title": "EvidenceAnchor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "source", "location", "support"],
+  "properties": {
+    "label": {
+      "enum": ["MS", "SUPP", "CODE", "DATA", "CALC", "CROSS", "EXT", "INF", "EXT-REQ", "UNK", "POLICY"]
+    },
+    "source": {"type": "string", "minLength": 1},
+    "location": {"type": "string", "minLength": 1},
+    "support": {"type": "string", "minLength": 1},
+    "verification_status": {
+      "enum": ["direct", "calculated", "cross_checked", "externally_opened", "inferred", "verification_required", "unknown"]
+    },
+    "source_date": {"type": ["string", "null"]}
+  }
+}

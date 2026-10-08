@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": [
+        "verified",
+        "rejected",
+        "uncertain"
+      ]
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "entailment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "claim_mapping_valid": {
+          "type": "boolean"
+        },
+        "anchors_support_failure_mechanism": {
+          "type": "boolean"
+        },
+        "scientific_consequence_proportionate": {
+          "type": "boolean"
+        },
+        "minimum_resolution_sufficient": {
+          "type": "boolean"
+        },
+        "closure_criterion_testable": {
+          "type": "boolean"
+        },
+        "steelman_survival_supported": {
+          "type": "boolean"
+        },
+        "manuscript_contradiction_found": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "claim_mapping_valid",
+        "anchors_support_failure_mechanism",
+        "scientific_consequence_proportionate",
+        "minimum_resolution_sufficient",
+        "closure_criterion_testable",
+        "steelman_survival_supported",
+        "manuscript_contradiction_found"
+      ]
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status",
+    "rationale",
+    "entailment",
+    "uncertainties"
+  ]
+}

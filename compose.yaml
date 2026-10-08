@@ -1,0 +1,9 @@
+services:
+  referee:
+    build: .
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./runs:/app/runs
+    environment:
+      - REFEREE_RUN_ROOT=/app/runs

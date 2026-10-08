@@ -1,0 +1,53 @@
+{
+  "frozen_before_official_results": true,
+  "aggregation_policy": "Report primary metrics separately; do not collapse them into one overall score.",
+  "primary_metrics": {
+    "major_concern_precision": {
+      "direction": ">=",
+      "threshold": 0.8
+    },
+    "scientific_defect_recall": {
+      "direction": ">=",
+      "threshold": 0.75
+    },
+    "ccore_control_false_positive_rate": {
+      "direction": "<=",
+      "threshold": 0.1
+    },
+    "mechanism_accuracy": {
+      "direction": ">=",
+      "threshold": 0.8
+    },
+    "counterfactual_sensitivity_pass_rate": {
+      "direction": ">=",
+      "threshold": 0.8
+    },
+    "anchor_integrity_rate": {
+      "direction": ">=",
+      "threshold": 0.99
+    },
+    "citation_support_accuracy": {
+      "direction": ">=",
+      "threshold": 0.95
+    }
+  },
+  "secondary_metrics": [
+    "closure_quality",
+    "consequence_accuracy",
+    "repeatability",
+    "stable_false_positive_rate",
+    "calibration_ece",
+    "mean_latency_seconds",
+    "mean_cost_llm_calls",
+    "per_domain_recall",
+    "severity_macro_f1",
+    "severity_class_coverage",
+    "major_concern_precision_coverage"
+  ],
+  "deterministic_integrity_requirement": {
+    "contract_test_pass_rate": 1.0,
+    "deterministic_integrity_pass_rate": 1.0,
+    "model_backed_behavioral_pass_rate": 1.0,
+    "hard_invariant_failures_allowed": 0
+  }
+}

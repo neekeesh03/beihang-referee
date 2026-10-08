@@ -1,0 +1,43 @@
+{
+  "name": "STARD family",
+  "routing_terms": [
+    "diagnostic accuracy",
+    "diagnostic test",
+    "sensitivity",
+    "specificity"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "index",
+      "label": "index test",
+      "terms": [
+        "index test"
+      ]
+    },
+    {
+      "id": "reference",
+      "label": "reference standard",
+      "terms": [
+        "reference standard"
+      ]
+    },
+    {
+      "id": "blinding",
+      "label": "blinding",
+      "terms": [
+        "blinded",
+        "masked"
+      ]
+    },
+    {
+      "id": "flow",
+      "label": "participant flow",
+      "terms": [
+        "flow diagram",
+        "participants"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

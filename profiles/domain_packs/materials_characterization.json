@@ -1,0 +1,18 @@
+{
+  "name": "materials_characterization",
+  "reviewer": "materials_characterization",
+  "triggers": [
+    "materials",
+    "xrd",
+    "sem",
+    "tem",
+    "raman",
+    "ftir",
+    "xps",
+    "surface area"
+  ],
+  "skills": [
+    "45_materials_characterization",
+    "54_spectroscopy_microscopy"
+  ]
+}

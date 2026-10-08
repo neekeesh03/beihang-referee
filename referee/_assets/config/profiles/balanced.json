@@ -1,0 +1,11 @@
+{
+  "mode": "deep",
+  "review_mode": "initial",
+  "enable_literature_search": true,
+  "enable_reliability_pass": true,
+  "enable_package_audit": true,
+  "enable_reporting_audit": true,
+  "enable_reproducibility_audit": true,
+  "enable_disagreement_audit": true,
+  "enable_provenance_audit": true
+}

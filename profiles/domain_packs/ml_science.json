@@ -1,0 +1,14 @@
+{
+  "name": "ml_science",
+  "reviewer": "ml_science",
+  "triggers": [
+    "machine learning",
+    "deep learning",
+    "artificial intelligence",
+    "neural network",
+    "scientific machine learning"
+  ],
+  "skills": [
+    "51_ml_for_science"
+  ]
+}

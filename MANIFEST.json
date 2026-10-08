@@ -1,0 +1,2846 @@
+{
+  "name": "Beihang Referee",
+  "build_date": "2026-10-07",
+  "description": "Evidence-grounded agentic peer review for scientific manuscripts",
+  "skills": 56,
+  "agents": 24,
+  "runtime_modules": 164,
+  "tests": 65,
+  "guideline_profiles": 15,
+  "domain_pack_profiles": 8,
+  "configuration_profiles": 5,
+  "binary_docx_fixtures": 46,
+  "benchmark_cases": {
+    "scientific_defect_cases": 420,
+    "revision_pairs": 160,
+    "rebuttal_cases": 180,
+    "domain_science_cases": 288,
+    "severity_calibration_cases": 9
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "size": 304
+    },
+    {
+      "path": ".gitattributes",
+      "size": 126
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "size": 1018
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "size": 28
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "size": 1011
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/provider_request.yml",
+      "size": 1030
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/review_quality.yml",
+      "size": 1884
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "size": 261
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "size": 994
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "size": 1390
+    },
+    {
+      "path": ".github/workflows/package.yml",
+      "size": 661
+    },
+    {
+      "path": ".gitignore",
+      "size": 449
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "size": 1493
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": 5938
+    },
+    {
+      "path": "Dockerfile",
+      "size": 158
+    },
+    {
+      "path": "LICENSE",
+      "size": 1077
+    },
+    {
+      "path": "Makefile",
+      "size": 596
+    },
+    {
+      "path": "QUICKSTART.md",
+      "size": 4145
+    },
+    {
+      "path": "README.md",
+      "size": 14570
+    },
+    {
+      "path": "SECURITY.md",
+      "size": 2995
+    },
+    {
+      "path": "SUPPORT.md",
+      "size": 1691
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 744
+    },
+    {
+      "path": "adapters/claude/CLAUDE.md",
+      "size": 406
+    },
+    {
+      "path": "adapters/generic/SYSTEM_PROMPT.md",
+      "size": 283
+    },
+    {
+      "path": "adapters/openai/AGENTS.md",
+      "size": 457
+    },
+    {
+      "path": "agents/00_orchestrator.md",
+      "size": 754
+    },
+    {
+      "path": "agents/01_document_mapper.md",
+      "size": 345
+    },
+    {
+      "path": "agents/02_literature_novelty.md",
+      "size": 565
+    },
+    {
+      "path": "agents/03_theory_construct.md",
+      "size": 462
+    },
+    {
+      "path": "agents/04_methods_design.md",
+      "size": 365
+    },
+    {
+      "path": "agents/05_statistics_causal.md",
+      "size": 424
+    },
+    {
+      "path": "agents/06_benchmark_model.md",
+      "size": 488
+    },
+    {
+      "path": "agents/07_code_reproducibility.md",
+      "size": 448
+    },
+    {
+      "path": "agents/08_ethics_integrity.md",
+      "size": 431
+    },
+    {
+      "path": "agents/09_journal_calibrator.md",
+      "size": 492
+    },
+    {
+      "path": "agents/10_red_team.md",
+      "size": 358
+    },
+    {
+      "path": "agents/11_steelman.md",
+      "size": 363
+    },
+    {
+      "path": "agents/12_revision_adjudicator.md",
+      "size": 420
+    },
+    {
+      "path": "agents/13_meta_reviewer.md",
+      "size": 579
+    },
+    {
+      "path": "agents/14_numerical_equation_auditor.md",
+      "size": 427
+    },
+    {
+      "path": "agents/15_reliability_auditor.md",
+      "size": 402
+    },
+    {
+      "path": "agents/16_electrochemistry_reviewer.md",
+      "size": 443
+    },
+    {
+      "path": "agents/17_materials_characterization_reviewer.md",
+      "size": 272
+    },
+    {
+      "path": "agents/18_environmental_process_reviewer.md",
+      "size": 276
+    },
+    {
+      "path": "agents/19_microbiology_omics_reviewer.md",
+      "size": 332
+    },
+    {
+      "path": "agents/20_energy_lca_tea_reviewer.md",
+      "size": 277
+    },
+    {
+      "path": "agents/21_computational_science_reviewer.md",
+      "size": 295
+    },
+    {
+      "path": "agents/22_ml_science_reviewer.md",
+      "size": 304
+    },
+    {
+      "path": "agents/23_metrology_measurement_reviewer.md",
+      "size": 259
+    },
+    {
+      "path": "benchmark_corpus/BLINDED_EXPERT_STUDY.md",
+      "size": 544
+    },
+    {
+      "path": "benchmark_corpus/README.md",
+      "size": 283
+    },
+    {
+      "path": "benchmark_corpus/REAL_WORLD_BENCHMARK.md",
+      "size": 939
+    },
+    {
+      "path": "benchmark_corpus/corpus_manifest.json",
+      "size": 743
+    },
+    {
+      "path": "benchmark_corpus/domain_science_cases.jsonl",
+      "size": 300882
+    },
+    {
+      "path": "benchmark_corpus/rebuttal_cases.jsonl",
+      "size": 184500
+    },
+    {
+      "path": "benchmark_corpus/revision_pairs.jsonl",
+      "size": 1290768
+    },
+    {
+      "path": "benchmark_corpus/scientific_defect_cases.jsonl",
+      "size": 1933911
+    },
+    {
+      "path": "benchmark_corpus/severity_calibration_cases.jsonl",
+      "size": 19385
+    },
+    {
+      "path": "benchmark_corpus/structured_gold.jsonl",
+      "size": 895907
+    },
+    {
+      "path": "compose.yaml",
+      "size": 155
+    },
+    {
+      "path": "config/benchmark_profiles/TEMPLATE.json",
+      "size": 1204
+    },
+    {
+      "path": "config/benchmark_profiles/nature-published.json",
+      "size": 3832
+    },
+    {
+      "path": "config/defaults.json",
+      "size": 2900
+    },
+    {
+      "path": "config/evidence_labels.json",
+      "size": 705
+    },
+    {
+      "path": "config/journal_profiles/TEMPLATE.json",
+      "size": 764
+    },
+    {
+      "path": "config/profiles/balanced.json",
+      "size": 298
+    },
+    {
+      "path": "config/profiles/editorial-screen.json",
+      "size": 146
+    },
+    {
+      "path": "config/profiles/full-audit.json",
+      "size": 192
+    },
+    {
+      "path": "config/profiles/reproducibility.json",
+      "size": 205
+    },
+    {
+      "path": "config/profiles/revision-closure.json",
+      "size": 156
+    },
+    {
+      "path": "config/score_dimensions.json",
+      "size": 2613
+    },
+    {
+      "path": "core/AGENT_SYSTEM.md",
+      "size": 6346
+    },
+    {
+      "path": "core/BENCHMARK_ADJUDICATOR_PROMPT.md",
+      "size": 568
+    },
+    {
+      "path": "core/BENCHMARK_EPISTEMOLOGY.md",
+      "size": 638
+    },
+    {
+      "path": "core/BENCHMARK_JUDGE_PROMPT.md",
+      "size": 1187
+    },
+    {
+      "path": "core/CLAIM_BURDEN_MATRIX.md",
+      "size": 2441
+    },
+    {
+      "path": "core/CLAIM_LANGUAGE_CALIBRATION.md",
+      "size": 416
+    },
+    {
+      "path": "core/CORE_REVIEWER_PROMPT.md",
+      "size": 3943
+    },
+    {
+      "path": "core/CORE_VERIFIER_PROMPT.md",
+      "size": 1668
+    },
+    {
+      "path": "core/DIAGNOSTIC_SCORECARD_PROMPT.md",
+      "size": 1662
+    },
+    {
+      "path": "core/EVIDENCE_DISCIPLINE.md",
+      "size": 1984
+    },
+    {
+      "path": "core/INDEPENDENT_VERIFIER_PROMPT.md",
+      "size": 2445
+    },
+    {
+      "path": "core/INPUT_CONTRACT.md",
+      "size": 1391
+    },
+    {
+      "path": "core/LITERATURE_SEARCH_PROTOCOL.md",
+      "size": 2419
+    },
+    {
+      "path": "core/NOVELTY_ENGINE.md",
+      "size": 1068
+    },
+    {
+      "path": "core/OUTPUT_CONTRACT.md",
+      "size": 2772
+    },
+    {
+      "path": "core/PEER_REVIEW_PROMPT.md",
+      "size": 14458
+    },
+    {
+      "path": "core/POLICY_GATE.md",
+      "size": 2580
+    },
+    {
+      "path": "core/REVIEW_RELIABILITY_PROTOCOL.md",
+      "size": 1715
+    },
+    {
+      "path": "core/SCORECARD.md",
+      "size": 1291
+    },
+    {
+      "path": "core/SEVERITY_ACTIONABILITY.md",
+      "size": 1567
+    },
+    {
+      "path": "core/SPECIALIST_EXECUTOR_PROMPT.md",
+      "size": 1215
+    },
+    {
+      "path": "core/TARGET_JOURNAL_CALIBRATOR_PROMPT.md",
+      "size": 1689
+    },
+    {
+      "path": "core/TEN_JOURNAL_ENGINE.md",
+      "size": 2302
+    },
+    {
+      "path": "core/VALIDATION_LADDER.md",
+      "size": 1294
+    },
+    {
+      "path": "dist/BEIHANG_REFEREE_FULL_AUDIT_PROMPT.md",
+      "size": 112623
+    },
+    {
+      "path": "dist/BEIHANG_REFEREE_PROMPT.md",
+      "size": 95557
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "size": 4346
+    },
+    {
+      "path": "docs/EVIDENCE_GRAPH.md",
+      "size": 484
+    },
+    {
+      "path": "docs/README.md",
+      "size": 2605
+    },
+    {
+      "path": "docs/REVIEW_PIPELINE.md",
+      "size": 4794
+    },
+    {
+      "path": "docs/architecture/EVIDENCE_LOCK.md",
+      "size": 770
+    },
+    {
+      "path": "docs/architecture/OVERVIEW.md",
+      "size": 1345
+    },
+    {
+      "path": "docs/architecture/REVIEW_MODES.md",
+      "size": 643
+    },
+    {
+      "path": "docs/architecture/SCHOLARLY_EVIDENCE.md",
+      "size": 676
+    },
+    {
+      "path": "docs/architecture/SECURITY_MODEL.md",
+      "size": 489
+    },
+    {
+      "path": "docs/architecture/STATE_AND_PROVENANCE.md",
+      "size": 897
+    },
+    {
+      "path": "docs/evaluation/VALIDATION.md",
+      "size": 7109
+    },
+    {
+      "path": "docs/guides/BENCHMARKING.md",
+      "size": 973
+    },
+    {
+      "path": "docs/guides/DEPLOYMENT.md",
+      "size": 597
+    },
+    {
+      "path": "docs/guides/DOCX_PACKAGE_AUDIT.md",
+      "size": 545
+    },
+    {
+      "path": "docs/guides/DOMAIN_PACKS.md",
+      "size": 1042
+    },
+    {
+      "path": "docs/guides/PROVIDER_DEVELOPMENT.md",
+      "size": 521
+    },
+    {
+      "path": "docs/guides/QUALITY_GATES.md",
+      "size": 547
+    },
+    {
+      "path": "docs/guides/REPORTING_GUIDELINES.md",
+      "size": 551
+    },
+    {
+      "path": "docs/guides/REPRODUCIBILITY.md",
+      "size": 536
+    },
+    {
+      "path": "docs/guides/REVISION_REBUTTAL.md",
+      "size": 626
+    },
+    {
+      "path": "evals/cases/major_comment_cases.json",
+      "size": 4490
+    },
+    {
+      "path": "examples/README.md",
+      "size": 863
+    },
+    {
+      "path": "examples/demo_manuscript.md",
+      "size": 476
+    },
+    {
+      "path": "examples/demo_responses.json",
+      "size": 4972
+    },
+    {
+      "path": "examples/expected_demo_review.md",
+      "size": 3989
+    },
+    {
+      "path": "fixtures/binary_regression/structural_00.docx",
+      "size": 37368
+    },
+    {
+      "path": "fixtures/binary_regression/structural_01.docx",
+      "size": 36997
+    },
+    {
+      "path": "fixtures/binary_regression/structural_02.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_03.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_04.docx",
+      "size": 36964
+    },
+    {
+      "path": "fixtures/binary_regression/structural_05.docx",
+      "size": 37167
+    },
+    {
+      "path": "fixtures/binary_regression/structural_06.docx",
+      "size": 36931
+    },
+    {
+      "path": "fixtures/binary_regression/structural_07.docx",
+      "size": 37308
+    },
+    {
+      "path": "fixtures/binary_regression/structural_08.docx",
+      "size": 36963
+    },
+    {
+      "path": "fixtures/binary_regression/structural_09.docx",
+      "size": 36994
+    },
+    {
+      "path": "fixtures/binary_regression/structural_10.docx",
+      "size": 37163
+    },
+    {
+      "path": "fixtures/binary_regression/structural_11.docx",
+      "size": 36998
+    },
+    {
+      "path": "fixtures/binary_regression/structural_12.docx",
+      "size": 36879
+    },
+    {
+      "path": "fixtures/binary_regression/structural_13.docx",
+      "size": 36997
+    },
+    {
+      "path": "fixtures/binary_regression/structural_14.docx",
+      "size": 37311
+    },
+    {
+      "path": "fixtures/binary_regression/structural_15.docx",
+      "size": 37168
+    },
+    {
+      "path": "fixtures/binary_regression/structural_16.docx",
+      "size": 36963
+    },
+    {
+      "path": "fixtures/binary_regression/structural_17.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_18.docx",
+      "size": 36933
+    },
+    {
+      "path": "fixtures/binary_regression/structural_19.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_20.docx",
+      "size": 37129
+    },
+    {
+      "path": "fixtures/binary_regression/structural_21.docx",
+      "size": 37312
+    },
+    {
+      "path": "fixtures/binary_regression/structural_22.docx",
+      "size": 36998
+    },
+    {
+      "path": "fixtures/binary_regression/structural_23.docx",
+      "size": 36997
+    },
+    {
+      "path": "fixtures/binary_regression/structural_24.docx",
+      "size": 36881
+    },
+    {
+      "path": "fixtures/binary_regression/structural_25.docx",
+      "size": 37168
+    },
+    {
+      "path": "fixtures/binary_regression/structural_26.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_27.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_28.docx",
+      "size": 37277
+    },
+    {
+      "path": "fixtures/binary_regression/structural_29.docx",
+      "size": 36996
+    },
+    {
+      "path": "fixtures/binary_regression/structural_30.docx",
+      "size": 37104
+    },
+    {
+      "path": "fixtures/binary_regression/structural_31.docx",
+      "size": 36998
+    },
+    {
+      "path": "fixtures/binary_regression/structural_32.docx",
+      "size": 36963
+    },
+    {
+      "path": "fixtures/binary_regression/structural_33.docx",
+      "size": 36997
+    },
+    {
+      "path": "fixtures/binary_regression/structural_34.docx",
+      "size": 36997
+    },
+    {
+      "path": "fixtures/binary_regression/structural_35.docx",
+      "size": 37482
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_0.docx",
+      "size": 37160
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_1.docx",
+      "size": 37060
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_2.docx",
+      "size": 37060
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_3.docx",
+      "size": 37160
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_4.docx",
+      "size": 37060
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_omml_5.docx",
+      "size": 37060
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_plaintext_math_0.docx",
+      "size": 37127
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_plaintext_math_1.docx",
+      "size": 37028
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_plaintext_math_2.docx",
+      "size": 37127
+    },
+    {
+      "path": "fixtures/manuscripts/fixture_plaintext_math_3.docx",
+      "size": 37028
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_0.pdf",
+      "size": 883
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_1.pdf",
+      "size": 883
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_2.pdf",
+      "size": 883
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_analysis.ipynb",
+      "size": 414
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_data.xlsx",
+      "size": 7135
+    },
+    {
+      "path": "fixtures/manuscripts/synthetic_paper.tex",
+      "size": 216
+    },
+    {
+      "path": "frontend/app.js",
+      "size": 6356
+    },
+    {
+      "path": "frontend/index.html",
+      "size": 1809
+    },
+    {
+      "path": "frontend/styles.css",
+      "size": 3289
+    },
+    {
+      "path": "guidelines/AI_REVIEW_POLICY_MATRIX.md",
+      "size": 1898
+    },
+    {
+      "path": "guidelines/COPE_ETHICS_DISTILLATE.md",
+      "size": 943
+    },
+    {
+      "path": "guidelines/ELSEVIER_DISTILLATE.md",
+      "size": 655
+    },
+    {
+      "path": "guidelines/JMIR_DISTILLATE.md",
+      "size": 692
+    },
+    {
+      "path": "guidelines/PUBLISHER_POLICY_REGISTRY.md",
+      "size": 5569
+    },
+    {
+      "path": "guidelines/REPORTING_GUIDELINE_ROUTER.md",
+      "size": 1604
+    },
+    {
+      "path": "guidelines/SPRINGER_NATURE_DISTILLATE.md",
+      "size": 803
+    },
+    {
+      "path": "guidelines/TAYLOR_FRANCIS_DISTILLATE.md",
+      "size": 626
+    },
+    {
+      "path": "guidelines/WILEY_DISTILLATE.md",
+      "size": 577
+    },
+    {
+      "path": "profiles/domain_packs/computational_science.json",
+      "size": 315
+    },
+    {
+      "path": "profiles/domain_packs/electrochemistry_fuel_cells.json",
+      "size": 419
+    },
+    {
+      "path": "profiles/domain_packs/energy_lca_tea.json",
+      "size": 277
+    },
+    {
+      "path": "profiles/domain_packs/environmental_process.json",
+      "size": 365
+    },
+    {
+      "path": "profiles/domain_packs/materials_characterization.json",
+      "size": 301
+    },
+    {
+      "path": "profiles/domain_packs/metrology_measurement.json",
+      "size": 320
+    },
+    {
+      "path": "profiles/domain_packs/microbiology_omics.json",
+      "size": 237
+    },
+    {
+      "path": "profiles/domain_packs/ml_science.json",
+      "size": 250
+    },
+    {
+      "path": "profiles/guidelines/arrive.json",
+      "size": 869
+    },
+    {
+      "path": "profiles/guidelines/care.json",
+      "size": 775
+    },
+    {
+      "path": "profiles/guidelines/case_control_genetic.json",
+      "size": 973
+    },
+    {
+      "path": "profiles/guidelines/cheers.json",
+      "size": 869
+    },
+    {
+      "path": "profiles/guidelines/claim.json",
+      "size": 944
+    },
+    {
+      "path": "profiles/guidelines/consort.json",
+      "size": 963
+    },
+    {
+      "path": "profiles/guidelines/coreq.json",
+      "size": 864
+    },
+    {
+      "path": "profiles/guidelines/ml_reporting.json",
+      "size": 961
+    },
+    {
+      "path": "profiles/guidelines/prisma.json",
+      "size": 885
+    },
+    {
+      "path": "profiles/guidelines/record.json",
+      "size": 889
+    },
+    {
+      "path": "profiles/guidelines/spirit.json",
+      "size": 882
+    },
+    {
+      "path": "profiles/guidelines/srqr.json",
+      "size": 911
+    },
+    {
+      "path": "profiles/guidelines/stard.json",
+      "size": 825
+    },
+    {
+      "path": "profiles/guidelines/strobe.json",
+      "size": 893
+    },
+    {
+      "path": "profiles/guidelines/tripod.json",
+      "size": 995
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 2248
+    },
+    {
+      "path": "referee/__init__.py",
+      "size": 181
+    },
+    {
+      "path": "referee/_assets/agents/00_orchestrator.md",
+      "size": 754
+    },
+    {
+      "path": "referee/_assets/agents/01_document_mapper.md",
+      "size": 345
+    },
+    {
+      "path": "referee/_assets/agents/02_literature_novelty.md",
+      "size": 565
+    },
+    {
+      "path": "referee/_assets/agents/03_theory_construct.md",
+      "size": 462
+    },
+    {
+      "path": "referee/_assets/agents/04_methods_design.md",
+      "size": 365
+    },
+    {
+      "path": "referee/_assets/agents/05_statistics_causal.md",
+      "size": 424
+    },
+    {
+      "path": "referee/_assets/agents/06_benchmark_model.md",
+      "size": 488
+    },
+    {
+      "path": "referee/_assets/agents/07_code_reproducibility.md",
+      "size": 448
+    },
+    {
+      "path": "referee/_assets/agents/08_ethics_integrity.md",
+      "size": 431
+    },
+    {
+      "path": "referee/_assets/agents/09_journal_calibrator.md",
+      "size": 492
+    },
+    {
+      "path": "referee/_assets/agents/10_red_team.md",
+      "size": 358
+    },
+    {
+      "path": "referee/_assets/agents/11_steelman.md",
+      "size": 363
+    },
+    {
+      "path": "referee/_assets/agents/12_revision_adjudicator.md",
+      "size": 420
+    },
+    {
+      "path": "referee/_assets/agents/13_meta_reviewer.md",
+      "size": 579
+    },
+    {
+      "path": "referee/_assets/agents/14_numerical_equation_auditor.md",
+      "size": 427
+    },
+    {
+      "path": "referee/_assets/agents/15_reliability_auditor.md",
+      "size": 402
+    },
+    {
+      "path": "referee/_assets/agents/16_electrochemistry_reviewer.md",
+      "size": 443
+    },
+    {
+      "path": "referee/_assets/agents/17_materials_characterization_reviewer.md",
+      "size": 272
+    },
+    {
+      "path": "referee/_assets/agents/18_environmental_process_reviewer.md",
+      "size": 276
+    },
+    {
+      "path": "referee/_assets/agents/19_microbiology_omics_reviewer.md",
+      "size": 332
+    },
+    {
+      "path": "referee/_assets/agents/20_energy_lca_tea_reviewer.md",
+      "size": 277
+    },
+    {
+      "path": "referee/_assets/agents/21_computational_science_reviewer.md",
+      "size": 295
+    },
+    {
+      "path": "referee/_assets/agents/22_ml_science_reviewer.md",
+      "size": 304
+    },
+    {
+      "path": "referee/_assets/agents/23_metrology_measurement_reviewer.md",
+      "size": 259
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/BLINDED_EXPERT_STUDY.md",
+      "size": 544
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/README.md",
+      "size": 283
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/REAL_WORLD_BENCHMARK.md",
+      "size": 939
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/corpus_manifest.json",
+      "size": 743
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/domain_science_cases.jsonl",
+      "size": 300882
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/rebuttal_cases.jsonl",
+      "size": 184500
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/revision_pairs.jsonl",
+      "size": 1290768
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/scientific_defect_cases.jsonl",
+      "size": 1933911
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/severity_calibration_cases.jsonl",
+      "size": 19385
+    },
+    {
+      "path": "referee/_assets/benchmark_corpus/structured_gold.jsonl",
+      "size": 895907
+    },
+    {
+      "path": "referee/_assets/config/benchmark_profiles/TEMPLATE.json",
+      "size": 1204
+    },
+    {
+      "path": "referee/_assets/config/benchmark_profiles/nature-published.json",
+      "size": 3832
+    },
+    {
+      "path": "referee/_assets/config/defaults.json",
+      "size": 2900
+    },
+    {
+      "path": "referee/_assets/config/journal_profiles/TEMPLATE.json",
+      "size": 764
+    },
+    {
+      "path": "referee/_assets/config/profiles/balanced.json",
+      "size": 298
+    },
+    {
+      "path": "referee/_assets/config/profiles/editorial-screen.json",
+      "size": 146
+    },
+    {
+      "path": "referee/_assets/config/profiles/full-audit.json",
+      "size": 192
+    },
+    {
+      "path": "referee/_assets/config/profiles/reproducibility.json",
+      "size": 205
+    },
+    {
+      "path": "referee/_assets/config/profiles/revision-closure.json",
+      "size": 156
+    },
+    {
+      "path": "referee/_assets/core/AGENT_SYSTEM.md",
+      "size": 6346
+    },
+    {
+      "path": "referee/_assets/core/BENCHMARK_ADJUDICATOR_PROMPT.md",
+      "size": 568
+    },
+    {
+      "path": "referee/_assets/core/BENCHMARK_EPISTEMOLOGY.md",
+      "size": 638
+    },
+    {
+      "path": "referee/_assets/core/BENCHMARK_JUDGE_PROMPT.md",
+      "size": 1187
+    },
+    {
+      "path": "referee/_assets/core/CLAIM_BURDEN_MATRIX.md",
+      "size": 2441
+    },
+    {
+      "path": "referee/_assets/core/CLAIM_LANGUAGE_CALIBRATION.md",
+      "size": 416
+    },
+    {
+      "path": "referee/_assets/core/CORE_REVIEWER_PROMPT.md",
+      "size": 3943
+    },
+    {
+      "path": "referee/_assets/core/CORE_VERIFIER_PROMPT.md",
+      "size": 1668
+    },
+    {
+      "path": "referee/_assets/core/DIAGNOSTIC_SCORECARD_PROMPT.md",
+      "size": 1662
+    },
+    {
+      "path": "referee/_assets/core/EVIDENCE_DISCIPLINE.md",
+      "size": 1984
+    },
+    {
+      "path": "referee/_assets/core/INDEPENDENT_VERIFIER_PROMPT.md",
+      "size": 2445
+    },
+    {
+      "path": "referee/_assets/core/INPUT_CONTRACT.md",
+      "size": 1391
+    },
+    {
+      "path": "referee/_assets/core/LITERATURE_SEARCH_PROTOCOL.md",
+      "size": 2419
+    },
+    {
+      "path": "referee/_assets/core/NOVELTY_ENGINE.md",
+      "size": 1068
+    },
+    {
+      "path": "referee/_assets/core/OUTPUT_CONTRACT.md",
+      "size": 2772
+    },
+    {
+      "path": "referee/_assets/core/PEER_REVIEW_PROMPT.md",
+      "size": 14458
+    },
+    {
+      "path": "referee/_assets/core/POLICY_GATE.md",
+      "size": 2580
+    },
+    {
+      "path": "referee/_assets/core/REVIEW_RELIABILITY_PROTOCOL.md",
+      "size": 1715
+    },
+    {
+      "path": "referee/_assets/core/SCORECARD.md",
+      "size": 1291
+    },
+    {
+      "path": "referee/_assets/core/SEVERITY_ACTIONABILITY.md",
+      "size": 1567
+    },
+    {
+      "path": "referee/_assets/core/SPECIALIST_EXECUTOR_PROMPT.md",
+      "size": 1215
+    },
+    {
+      "path": "referee/_assets/core/TARGET_JOURNAL_CALIBRATOR_PROMPT.md",
+      "size": 1689
+    },
+    {
+      "path": "referee/_assets/core/TEN_JOURNAL_ENGINE.md",
+      "size": 2302
+    },
+    {
+      "path": "referee/_assets/core/VALIDATION_LADDER.md",
+      "size": 1294
+    },
+    {
+      "path": "referee/_assets/frontend/app.js",
+      "size": 6356
+    },
+    {
+      "path": "referee/_assets/frontend/index.html",
+      "size": 1809
+    },
+    {
+      "path": "referee/_assets/frontend/styles.css",
+      "size": 3289
+    },
+    {
+      "path": "referee/_assets/guidelines/AI_REVIEW_POLICY_MATRIX.md",
+      "size": 1898
+    },
+    {
+      "path": "referee/_assets/guidelines/COPE_ETHICS_DISTILLATE.md",
+      "size": 943
+    },
+    {
+      "path": "referee/_assets/guidelines/ELSEVIER_DISTILLATE.md",
+      "size": 655
+    },
+    {
+      "path": "referee/_assets/guidelines/JMIR_DISTILLATE.md",
+      "size": 692
+    },
+    {
+      "path": "referee/_assets/guidelines/PUBLISHER_POLICY_REGISTRY.md",
+      "size": 5569
+    },
+    {
+      "path": "referee/_assets/guidelines/REPORTING_GUIDELINE_ROUTER.md",
+      "size": 1604
+    },
+    {
+      "path": "referee/_assets/guidelines/SPRINGER_NATURE_DISTILLATE.md",
+      "size": 803
+    },
+    {
+      "path": "referee/_assets/guidelines/TAYLOR_FRANCIS_DISTILLATE.md",
+      "size": 626
+    },
+    {
+      "path": "referee/_assets/guidelines/WILEY_DISTILLATE.md",
+      "size": 577
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/computational_science.json",
+      "size": 315
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/electrochemistry_fuel_cells.json",
+      "size": 419
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/energy_lca_tea.json",
+      "size": 277
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/environmental_process.json",
+      "size": 365
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/materials_characterization.json",
+      "size": 301
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/metrology_measurement.json",
+      "size": 320
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/microbiology_omics.json",
+      "size": 237
+    },
+    {
+      "path": "referee/_assets/profiles/domain_packs/ml_science.json",
+      "size": 250
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/arrive.json",
+      "size": 869
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/care.json",
+      "size": 775
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/case_control_genetic.json",
+      "size": 973
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/cheers.json",
+      "size": 869
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/claim.json",
+      "size": 944
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/consort.json",
+      "size": 963
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/coreq.json",
+      "size": 864
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/ml_reporting.json",
+      "size": 961
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/prisma.json",
+      "size": 885
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/record.json",
+      "size": 889
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/spirit.json",
+      "size": 882
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/srqr.json",
+      "size": 911
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/stard.json",
+      "size": 825
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/strobe.json",
+      "size": 893
+    },
+    {
+      "path": "referee/_assets/profiles/guidelines/tripod.json",
+      "size": 995
+    },
+    {
+      "path": "referee/_assets/schemas/claim_registry.schema.json",
+      "size": 1577
+    },
+    {
+      "path": "referee/_assets/schemas/concern_ledger.schema.json",
+      "size": 956
+    },
+    {
+      "path": "referee/_assets/schemas/core_peer_review.schema.json",
+      "size": 12304
+    },
+    {
+      "path": "referee/_assets/schemas/critical_gates.schema.json",
+      "size": 1248
+    },
+    {
+      "path": "referee/_assets/schemas/evidence_anchor.schema.json",
+      "size": 755
+    },
+    {
+      "path": "referee/_assets/schemas/independent_verifier.schema.json",
+      "size": 1427
+    },
+    {
+      "path": "referee/_assets/schemas/journal_matrix.schema.json",
+      "size": 1356
+    },
+    {
+      "path": "referee/_assets/schemas/major_comment.schema.json",
+      "size": 2200
+    },
+    {
+      "path": "referee/_assets/schemas/real_world_benchmark.schema.json",
+      "size": 1024
+    },
+    {
+      "path": "referee/_assets/schemas/review_output.schema.json",
+      "size": 1180
+    },
+    {
+      "path": "referee/_assets/schemas/search_ledger.schema.json",
+      "size": 1292
+    },
+    {
+      "path": "referee/_assets/skills/00_policy_compliance/SKILL.md",
+      "size": 910
+    },
+    {
+      "path": "referee/_assets/skills/01_intake_document_map/SKILL.md",
+      "size": 688
+    },
+    {
+      "path": "referee/_assets/skills/02_manuscript_classification/SKILL.md",
+      "size": 701
+    },
+    {
+      "path": "referee/_assets/skills/03_claim_registry/SKILL.md",
+      "size": 930
+    },
+    {
+      "path": "referee/_assets/skills/04_reference_forensics/SKILL.md",
+      "size": 771
+    },
+    {
+      "path": "referee/_assets/skills/05_literature_search/SKILL.md",
+      "size": 969
+    },
+    {
+      "path": "referee/_assets/skills/06_field_trends/SKILL.md",
+      "size": 662
+    },
+    {
+      "path": "referee/_assets/skills/07_novelty/SKILL.md",
+      "size": 858
+    },
+    {
+      "path": "referee/_assets/skills/08_research_gap/SKILL.md",
+      "size": 647
+    },
+    {
+      "path": "referee/_assets/skills/09_construct_theory/SKILL.md",
+      "size": 779
+    },
+    {
+      "path": "referee/_assets/skills/10_rival_theory_falsifiability/SKILL.md",
+      "size": 721
+    },
+    {
+      "path": "referee/_assets/skills/11_empirical_design/SKILL.md",
+      "size": 723
+    },
+    {
+      "path": "referee/_assets/skills/12_sampling_measurement/SKILL.md",
+      "size": 717
+    },
+    {
+      "path": "referee/_assets/skills/13_causal_inference/SKILL.md",
+      "size": 744
+    },
+    {
+      "path": "referee/_assets/skills/14_statistics/SKILL.md",
+      "size": 742
+    },
+    {
+      "path": "referee/_assets/skills/15_benchmark_epistemology/SKILL.md",
+      "size": 821
+    },
+    {
+      "path": "referee/_assets/skills/16_model_validation/SKILL.md",
+      "size": 790
+    },
+    {
+      "path": "referee/_assets/skills/17_ml_ai/SKILL.md",
+      "size": 770
+    },
+    {
+      "path": "referee/_assets/skills/18_computational_simulation/SKILL.md",
+      "size": 757
+    },
+    {
+      "path": "referee/_assets/skills/19_systematic_review_meta/SKILL.md",
+      "size": 685
+    },
+    {
+      "path": "referee/_assets/skills/20_qualitative/SKILL.md",
+      "size": 635
+    },
+    {
+      "path": "referee/_assets/skills/21_rct_intervention/SKILL.md",
+      "size": 609
+    },
+    {
+      "path": "referee/_assets/skills/22_observational_epidemiology/SKILL.md",
+      "size": 582
+    },
+    {
+      "path": "referee/_assets/skills/23_diagnostic_prognostic/SKILL.md",
+      "size": 679
+    },
+    {
+      "path": "referee/_assets/skills/24_measurement_instrument/SKILL.md",
+      "size": 603
+    },
+    {
+      "path": "referee/_assets/skills/25_figures_tables/SKILL.md",
+      "size": 759
+    },
+    {
+      "path": "referee/_assets/skills/26_code_reproducibility/SKILL.md",
+      "size": 762
+    },
+    {
+      "path": "referee/_assets/skills/27_robustness_generalization/SKILL.md",
+      "size": 758
+    },
+    {
+      "path": "referee/_assets/skills/28_ethics_integrity/SKILL.md",
+      "size": 640
+    },
+    {
+      "path": "referee/_assets/skills/29_reporting_guidelines/SKILL.md",
+      "size": 867
+    },
+    {
+      "path": "referee/_assets/skills/30_journal_calibration/SKILL.md",
+      "size": 819
+    },
+    {
+      "path": "referee/_assets/skills/31_revision_adjudication/SKILL.md",
+      "size": 670
+    },
+    {
+      "path": "referee/_assets/skills/32_review_synthesis/SKILL.md",
+      "size": 978
+    },
+    {
+      "path": "referee/_assets/skills/33_red_team_steelman/SKILL.md",
+      "size": 673
+    },
+    {
+      "path": "referee/_assets/skills/34_score_calibration/SKILL.md",
+      "size": 778
+    },
+    {
+      "path": "referee/_assets/skills/35_security_prompt_injection/SKILL.md",
+      "size": 606
+    },
+    {
+      "path": "referee/_assets/skills/36_data_privacy/SKILL.md",
+      "size": 617
+    },
+    {
+      "path": "referee/_assets/skills/37_retraction_citation_integrity/SKILL.md",
+      "size": 649
+    },
+    {
+      "path": "referee/_assets/skills/38_equations_units_numerical_consistency/SKILL.md",
+      "size": 1115
+    },
+    {
+      "path": "referee/_assets/skills/39_literature_search_provenance/SKILL.md",
+      "size": 940
+    },
+    {
+      "path": "referee/_assets/skills/40_review_reliability_repeatability/SKILL.md",
+      "size": 897
+    },
+    {
+      "path": "referee/_assets/skills/41_domain_standard_router/SKILL.md",
+      "size": 912
+    },
+    {
+      "path": "referee/_assets/skills/42_review_bias_fairness/SKILL.md",
+      "size": 870
+    },
+    {
+      "path": "referee/_assets/skills/43_major_comment_admission/SKILL.md",
+      "size": 912
+    },
+    {
+      "path": "referee/_assets/skills/44_electrochemistry_fuel_cells/SKILL.md",
+      "size": 1431
+    },
+    {
+      "path": "referee/_assets/skills/45_materials_characterization/SKILL.md",
+      "size": 1050
+    },
+    {
+      "path": "referee/_assets/skills/46_environmental_water_processes/SKILL.md",
+      "size": 1052
+    },
+    {
+      "path": "referee/_assets/skills/47_microbiology_biofilms_omics/SKILL.md",
+      "size": 982
+    },
+    {
+      "path": "referee/_assets/skills/48_analytical_chemistry_measurement/SKILL.md",
+      "size": 917
+    },
+    {
+      "path": "referee/_assets/skills/49_energy_lca_tea/SKILL.md",
+      "size": 914
+    },
+    {
+      "path": "referee/_assets/skills/50_computational_science_numerics/SKILL.md",
+      "size": 891
+    },
+    {
+      "path": "referee/_assets/skills/51_ml_for_science/SKILL.md",
+      "size": 982
+    },
+    {
+      "path": "referee/_assets/skills/52_experimental_metrology_uncertainty/SKILL.md",
+      "size": 901
+    },
+    {
+      "path": "referee/_assets/skills/53_chemical_kinetics_transport/SKILL.md",
+      "size": 918
+    },
+    {
+      "path": "referee/_assets/skills/54_spectroscopy_microscopy/SKILL.md",
+      "size": 822
+    },
+    {
+      "path": "referee/_assets/skills/55_scaleup_process_engineering/SKILL.md",
+      "size": 918
+    },
+    {
+      "path": "referee/_assets/validation/CLOSURE_MATRIX.md",
+      "size": 3512
+    },
+    {
+      "path": "referee/_assets/validation/README.md",
+      "size": 2305
+    },
+    {
+      "path": "referee/_assets/validation/SUCCESS_CRITERIA.json",
+      "size": 1368
+    },
+    {
+      "path": "referee/_assets/validation/VALIDATION_RELEASE.json",
+      "size": 2305
+    },
+    {
+      "path": "referee/_resources.py",
+      "size": 799
+    },
+    {
+      "path": "referee/benchmarking.py",
+      "size": 6705
+    },
+    {
+      "path": "referee/benchmarks/__init__.py",
+      "size": 81
+    },
+    {
+      "path": "referee/benchmarks/harness.py",
+      "size": 749
+    },
+    {
+      "path": "referee/cache/__init__.py",
+      "size": 62
+    },
+    {
+      "path": "referee/cache/sqlite_cache.py",
+      "size": 947
+    },
+    {
+      "path": "referee/cli.py",
+      "size": 15417
+    },
+    {
+      "path": "referee/comparison/__init__.py",
+      "size": 215
+    },
+    {
+      "path": "referee/comparison/rebuttal.py",
+      "size": 478
+    },
+    {
+      "path": "referee/comparison/resolution.py",
+      "size": 580
+    },
+    {
+      "path": "referee/comparison/revision_diff.py",
+      "size": 494
+    },
+    {
+      "path": "referee/config.py",
+      "size": 5401
+    },
+    {
+      "path": "referee/context.py",
+      "size": 603
+    },
+    {
+      "path": "referee/context_manager.py",
+      "size": 1741
+    },
+    {
+      "path": "referee/contracts/__init__.py",
+      "size": 399
+    },
+    {
+      "path": "referee/contracts/concern.py",
+      "size": 8136
+    },
+    {
+      "path": "referee/contracts/core_review.py",
+      "size": 10953
+    },
+    {
+      "path": "referee/contracts/jsoncheck.py",
+      "size": 4622
+    },
+    {
+      "path": "referee/contracts/review.py",
+      "size": 5759
+    },
+    {
+      "path": "referee/contracts/schemas.py",
+      "size": 10681
+    },
+    {
+      "path": "referee/documents/__init__.py",
+      "size": 167
+    },
+    {
+      "path": "referee/documents/loader.py",
+      "size": 4295
+    },
+    {
+      "path": "referee/documents/security.py",
+      "size": 1032
+    },
+    {
+      "path": "referee/domain_packs/__init__.py",
+      "size": 72
+    },
+    {
+      "path": "referee/domain_packs/registry.py",
+      "size": 744
+    },
+    {
+      "path": "referee/engine.py",
+      "size": 12543
+    },
+    {
+      "path": "referee/evals/__init__.py",
+      "size": 745
+    },
+    {
+      "path": "referee/evals/ablation_runtime.py",
+      "size": 5302
+    },
+    {
+      "path": "referee/evals/ablations.py",
+      "size": 3133
+    },
+    {
+      "path": "referee/evals/corpus.py",
+      "size": 1623
+    },
+    {
+      "path": "referee/evals/counterfactual.py",
+      "size": 1632
+    },
+    {
+      "path": "referee/evals/end_to_end.py",
+      "size": 12474
+    },
+    {
+      "path": "referee/evals/expert_study.py",
+      "size": 1268
+    },
+    {
+      "path": "referee/evals/full_suite.py",
+      "size": 14727
+    },
+    {
+      "path": "referee/evals/gold.py",
+      "size": 14633
+    },
+    {
+      "path": "referee/evals/harness.py",
+      "size": 502
+    },
+    {
+      "path": "referee/evals/judge.py",
+      "size": 13490
+    },
+    {
+      "path": "referee/evals/metrics.py",
+      "size": 476
+    },
+    {
+      "path": "referee/evals/mutations.py",
+      "size": 520
+    },
+    {
+      "path": "referee/evals/real_world.py",
+      "size": 1455
+    },
+    {
+      "path": "referee/evals/scoring.py",
+      "size": 7236
+    },
+    {
+      "path": "referee/evidence/__init__.py",
+      "size": 133
+    },
+    {
+      "path": "referee/evidence/graph.py",
+      "size": 1853
+    },
+    {
+      "path": "referee/evidence/store.py",
+      "size": 865
+    },
+    {
+      "path": "referee/exports/__init__.py",
+      "size": 127
+    },
+    {
+      "path": "referee/exports/csv_export.py",
+      "size": 742
+    },
+    {
+      "path": "referee/exports/html_report.py",
+      "size": 983
+    },
+    {
+      "path": "referee/exports/jsonl.py",
+      "size": 170
+    },
+    {
+      "path": "referee/finalization/__init__.py",
+      "size": 180
+    },
+    {
+      "path": "referee/finalization/bundle.py",
+      "size": 4171
+    },
+    {
+      "path": "referee/finalization/quality.py",
+      "size": 2723
+    },
+    {
+      "path": "referee/finalization/verify.py",
+      "size": 1267
+    },
+    {
+      "path": "referee/ingestion/__init__.py",
+      "size": 409
+    },
+    {
+      "path": "referee/ingestion/bundle.py",
+      "size": 3443
+    },
+    {
+      "path": "referee/ingestion/docx_inspector.py",
+      "size": 1570
+    },
+    {
+      "path": "referee/ingestion/jats.py",
+      "size": 589
+    },
+    {
+      "path": "referee/ingestion/latex_inspector.py",
+      "size": 796
+    },
+    {
+      "path": "referee/ingestion/notebooks.py",
+      "size": 894
+    },
+    {
+      "path": "referee/ingestion/references.py",
+      "size": 825
+    },
+    {
+      "path": "referee/ingestion/sections.py",
+      "size": 1226
+    },
+    {
+      "path": "referee/ingestion/spreadsheets.py",
+      "size": 878
+    },
+    {
+      "path": "referee/journal/__init__.py",
+      "size": 138
+    },
+    {
+      "path": "referee/journal/fit_matrix.py",
+      "size": 467
+    },
+    {
+      "path": "referee/journal/profiles.py",
+      "size": 286
+    },
+    {
+      "path": "referee/lifecycle/__init__.py",
+      "size": 119
+    },
+    {
+      "path": "referee/lifecycle/registry.py",
+      "size": 5061
+    },
+    {
+      "path": "referee/lifecycle/workspace.py",
+      "size": 1952
+    },
+    {
+      "path": "referee/mcp/__init__.py",
+      "size": 58
+    },
+    {
+      "path": "referee/mcp/server.py",
+      "size": 1313
+    },
+    {
+      "path": "referee/models.py",
+      "size": 4350
+    },
+    {
+      "path": "referee/modes/__init__.py",
+      "size": 72
+    },
+    {
+      "path": "referee/modes/base.py",
+      "size": 273
+    },
+    {
+      "path": "referee/modes/editorial.py",
+      "size": 72
+    },
+    {
+      "path": "referee/modes/initial.py",
+      "size": 63
+    },
+    {
+      "path": "referee/modes/meta_review.py",
+      "size": 67
+    },
+    {
+      "path": "referee/modes/rebuttal.py",
+      "size": 64
+    },
+    {
+      "path": "referee/modes/registry.py",
+      "size": 1188
+    },
+    {
+      "path": "referee/modes/revision.py",
+      "size": 64
+    },
+    {
+      "path": "referee/observability/__init__.py",
+      "size": 104
+    },
+    {
+      "path": "referee/observability/metrics.py",
+      "size": 284
+    },
+    {
+      "path": "referee/observability/trace.py",
+      "size": 333
+    },
+    {
+      "path": "referee/plugins/__init__.py",
+      "size": 66
+    },
+    {
+      "path": "referee/plugins/registry.py",
+      "size": 752
+    },
+    {
+      "path": "referee/profiles/__init__.py",
+      "size": 69
+    },
+    {
+      "path": "referee/profiles/registry.py",
+      "size": 751
+    },
+    {
+      "path": "referee/prompting.py",
+      "size": 546
+    },
+    {
+      "path": "referee/providers/__init__.py",
+      "size": 331
+    },
+    {
+      "path": "referee/providers/base.py",
+      "size": 857
+    },
+    {
+      "path": "referee/providers/openai_compatible.py",
+      "size": 2484
+    },
+    {
+      "path": "referee/providers/registry.py",
+      "size": 721
+    },
+    {
+      "path": "referee/providers/scholarly_search.py",
+      "size": 1800
+    },
+    {
+      "path": "referee/providers/scripted.py",
+      "size": 1470
+    },
+    {
+      "path": "referee/renderers/__init__.py",
+      "size": 82
+    },
+    {
+      "path": "referee/renderers/markdown.py",
+      "size": 5936
+    },
+    {
+      "path": "referee/reporting/__init__.py",
+      "size": 138
+    },
+    {
+      "path": "referee/reporting/checklist.py",
+      "size": 755
+    },
+    {
+      "path": "referee/reporting/registry.py",
+      "size": 1189
+    },
+    {
+      "path": "referee/reproducibility/__init__.py",
+      "size": 168
+    },
+    {
+      "path": "referee/reproducibility/code_metrics.py",
+      "size": 635
+    },
+    {
+      "path": "referee/reproducibility/data_manifest.py",
+      "size": 516
+    },
+    {
+      "path": "referee/reproducibility/environment.py",
+      "size": 601
+    },
+    {
+      "path": "referee/reproducibility/package_scanner.py",
+      "size": 857
+    },
+    {
+      "path": "referee/reviewers/__init__.py",
+      "size": 179
+    },
+    {
+      "path": "referee/reviewers/calibration.py",
+      "size": 415
+    },
+    {
+      "path": "referee/reviewers/consensus.py",
+      "size": 800
+    },
+    {
+      "path": "referee/reviewers/disagreement.py",
+      "size": 507
+    },
+    {
+      "path": "referee/reviewers/roster.py",
+      "size": 2980
+    },
+    {
+      "path": "referee/reviewers/router.py",
+      "size": 2156
+    },
+    {
+      "path": "referee/runtime/budget.py",
+      "size": 636
+    },
+    {
+      "path": "referee/runtime/calltrace.py",
+      "size": 269
+    },
+    {
+      "path": "referee/runtime/checkpoint.py",
+      "size": 1298
+    },
+    {
+      "path": "referee/runtime/events.py",
+      "size": 1153
+    },
+    {
+      "path": "referee/runtime/retry.py",
+      "size": 495
+    },
+    {
+      "path": "referee/scholarly/__init__.py",
+      "size": 272
+    },
+    {
+      "path": "referee/scholarly/arxiv.py",
+      "size": 995
+    },
+    {
+      "path": "referee/scholarly/base.py",
+      "size": 747
+    },
+    {
+      "path": "referee/scholarly/cache.py",
+      "size": 609
+    },
+    {
+      "path": "referee/scholarly/citation_graph.py",
+      "size": 499
+    },
+    {
+      "path": "referee/scholarly/crossref.py",
+      "size": 940
+    },
+    {
+      "path": "referee/scholarly/dedupe.py",
+      "size": 509
+    },
+    {
+      "path": "referee/scholarly/europe_pmc.py",
+      "size": 985
+    },
+    {
+      "path": "referee/scholarly/federated.py",
+      "size": 1325
+    },
+    {
+      "path": "referee/scholarly/http.py",
+      "size": 829
+    },
+    {
+      "path": "referee/scholarly/normalize.py",
+      "size": 345
+    },
+    {
+      "path": "referee/scholarly/openalex.py",
+      "size": 991
+    },
+    {
+      "path": "referee/scholarly/pubmed.py",
+      "size": 1212
+    },
+    {
+      "path": "referee/scholarly/quality.py",
+      "size": 531
+    },
+    {
+      "path": "referee/scholarly/ranking.py",
+      "size": 599
+    },
+    {
+      "path": "referee/scholarly/registry.py",
+      "size": 744
+    },
+    {
+      "path": "referee/scholarly/semantic_scholar.py",
+      "size": 1008
+    },
+    {
+      "path": "referee/security/__init__.py",
+      "size": 169
+    },
+    {
+      "path": "referee/security/paths.py",
+      "size": 203
+    },
+    {
+      "path": "referee/security/redaction.py",
+      "size": 242
+    },
+    {
+      "path": "referee/security/secrets.py",
+      "size": 459
+    },
+    {
+      "path": "referee/server/__init__.py",
+      "size": 51
+    },
+    {
+      "path": "referee/server/app.py",
+      "size": 5372
+    },
+    {
+      "path": "referee/server/events.py",
+      "size": 395
+    },
+    {
+      "path": "referee/server/models.py",
+      "size": 534
+    },
+    {
+      "path": "referee/stages/__init__.py",
+      "size": 2999
+    },
+    {
+      "path": "referee/stages/base.py",
+      "size": 361
+    },
+    {
+      "path": "referee/stages/core.py",
+      "size": 65433
+    },
+    {
+      "path": "referee/stages/modes.py",
+      "size": 7279
+    },
+    {
+      "path": "referee/stages/platform.py",
+      "size": 4151
+    },
+    {
+      "path": "referee/stages/review.py",
+      "size": 79776
+    },
+    {
+      "path": "referee/utils/__init__.py",
+      "size": 139
+    },
+    {
+      "path": "referee/utils/hashing.py",
+      "size": 320
+    },
+    {
+      "path": "referee/utils/text.py",
+      "size": 177
+    },
+    {
+      "path": "referee/validation/__init__.py",
+      "size": 448
+    },
+    {
+      "path": "referee/validation/adversarial.py",
+      "size": 16183
+    },
+    {
+      "path": "referee/validation/behavioral.py",
+      "size": 6811
+    },
+    {
+      "path": "referee/validation/campaign.py",
+      "size": 18259
+    },
+    {
+      "path": "referee/validation/identifiers.py",
+      "size": 6376
+    },
+    {
+      "path": "referee/validation/invariants.py",
+      "size": 7554
+    },
+    {
+      "path": "referee/validation/release.py",
+      "size": 8027
+    },
+    {
+      "path": "referee/verification/__init__.py",
+      "size": 263
+    },
+    {
+      "path": "referee/verification/anchors.py",
+      "size": 2804
+    },
+    {
+      "path": "referee/verification/burden.py",
+      "size": 710
+    },
+    {
+      "path": "referee/verification/citations.py",
+      "size": 10007
+    },
+    {
+      "path": "referee/verification/closure.py",
+      "size": 380
+    },
+    {
+      "path": "referee/verification/contradiction.py",
+      "size": 432
+    },
+    {
+      "path": "referee/verification/entailment.py",
+      "size": 342
+    },
+    {
+      "path": "referee/verification/provenance.py",
+      "size": 640
+    },
+    {
+      "path": "referee/version.py",
+      "size": 174
+    },
+    {
+      "path": "references/DESIGN_LESSONS_FROM_NATURE_REVIEW.md",
+      "size": 2660
+    },
+    {
+      "path": "references/LLM_PEER_REVIEW_DESIGN_NOTES.md",
+      "size": 993
+    },
+    {
+      "path": "references/SOURCE_LEDGER.md",
+      "size": 2444
+    },
+    {
+      "path": "schemas/claim_registry.schema.json",
+      "size": 1577
+    },
+    {
+      "path": "schemas/concern_ledger.schema.json",
+      "size": 956
+    },
+    {
+      "path": "schemas/core_peer_review.schema.json",
+      "size": 12304
+    },
+    {
+      "path": "schemas/critical_gates.schema.json",
+      "size": 1248
+    },
+    {
+      "path": "schemas/evidence_anchor.schema.json",
+      "size": 755
+    },
+    {
+      "path": "schemas/independent_verifier.schema.json",
+      "size": 1427
+    },
+    {
+      "path": "schemas/journal_matrix.schema.json",
+      "size": 1356
+    },
+    {
+      "path": "schemas/major_comment.schema.json",
+      "size": 2200
+    },
+    {
+      "path": "schemas/real_world_benchmark.schema.json",
+      "size": 1024
+    },
+    {
+      "path": "schemas/review_output.schema.json",
+      "size": 1180
+    },
+    {
+      "path": "schemas/search_ledger.schema.json",
+      "size": 1292
+    },
+    {
+      "path": "scripts/build_release.py",
+      "size": 3413
+    },
+    {
+      "path": "scripts/build_single_prompt.py",
+      "size": 2597
+    },
+    {
+      "path": "scripts/prepare_expert_study.py",
+      "size": 735
+    },
+    {
+      "path": "scripts/rebuild_package_metadata.py",
+      "size": 2679
+    },
+    {
+      "path": "scripts/run_ablation_benchmark.py",
+      "size": 2567
+    },
+    {
+      "path": "scripts/run_benchmark_suite.py",
+      "size": 1757
+    },
+    {
+      "path": "scripts/run_evals.py",
+      "size": 2043
+    },
+    {
+      "path": "scripts/run_mutation_benchmark.py",
+      "size": 2495
+    },
+    {
+      "path": "scripts/sync_runtime_assets.py",
+      "size": 1050
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "size": 14417
+    },
+    {
+      "path": "skills/00_policy_compliance/SKILL.md",
+      "size": 910
+    },
+    {
+      "path": "skills/01_intake_document_map/SKILL.md",
+      "size": 688
+    },
+    {
+      "path": "skills/02_manuscript_classification/SKILL.md",
+      "size": 701
+    },
+    {
+      "path": "skills/03_claim_registry/SKILL.md",
+      "size": 930
+    },
+    {
+      "path": "skills/04_reference_forensics/SKILL.md",
+      "size": 771
+    },
+    {
+      "path": "skills/05_literature_search/SKILL.md",
+      "size": 969
+    },
+    {
+      "path": "skills/06_field_trends/SKILL.md",
+      "size": 662
+    },
+    {
+      "path": "skills/07_novelty/SKILL.md",
+      "size": 858
+    },
+    {
+      "path": "skills/08_research_gap/SKILL.md",
+      "size": 647
+    },
+    {
+      "path": "skills/09_construct_theory/SKILL.md",
+      "size": 779
+    },
+    {
+      "path": "skills/10_rival_theory_falsifiability/SKILL.md",
+      "size": 721
+    },
+    {
+      "path": "skills/11_empirical_design/SKILL.md",
+      "size": 723
+    },
+    {
+      "path": "skills/12_sampling_measurement/SKILL.md",
+      "size": 717
+    },
+    {
+      "path": "skills/13_causal_inference/SKILL.md",
+      "size": 744
+    },
+    {
+      "path": "skills/14_statistics/SKILL.md",
+      "size": 742
+    },
+    {
+      "path": "skills/15_benchmark_epistemology/SKILL.md",
+      "size": 821
+    },
+    {
+      "path": "skills/16_model_validation/SKILL.md",
+      "size": 790
+    },
+    {
+      "path": "skills/17_ml_ai/SKILL.md",
+      "size": 770
+    },
+    {
+      "path": "skills/18_computational_simulation/SKILL.md",
+      "size": 757
+    },
+    {
+      "path": "skills/19_systematic_review_meta/SKILL.md",
+      "size": 685
+    },
+    {
+      "path": "skills/20_qualitative/SKILL.md",
+      "size": 635
+    },
+    {
+      "path": "skills/21_rct_intervention/SKILL.md",
+      "size": 609
+    },
+    {
+      "path": "skills/22_observational_epidemiology/SKILL.md",
+      "size": 582
+    },
+    {
+      "path": "skills/23_diagnostic_prognostic/SKILL.md",
+      "size": 679
+    },
+    {
+      "path": "skills/24_measurement_instrument/SKILL.md",
+      "size": 603
+    },
+    {
+      "path": "skills/25_figures_tables/SKILL.md",
+      "size": 759
+    },
+    {
+      "path": "skills/26_code_reproducibility/SKILL.md",
+      "size": 762
+    },
+    {
+      "path": "skills/27_robustness_generalization/SKILL.md",
+      "size": 758
+    },
+    {
+      "path": "skills/28_ethics_integrity/SKILL.md",
+      "size": 640
+    },
+    {
+      "path": "skills/29_reporting_guidelines/SKILL.md",
+      "size": 867
+    },
+    {
+      "path": "skills/30_journal_calibration/SKILL.md",
+      "size": 819
+    },
+    {
+      "path": "skills/31_revision_adjudication/SKILL.md",
+      "size": 670
+    },
+    {
+      "path": "skills/32_review_synthesis/SKILL.md",
+      "size": 978
+    },
+    {
+      "path": "skills/33_red_team_steelman/SKILL.md",
+      "size": 673
+    },
+    {
+      "path": "skills/34_score_calibration/SKILL.md",
+      "size": 778
+    },
+    {
+      "path": "skills/35_security_prompt_injection/SKILL.md",
+      "size": 606
+    },
+    {
+      "path": "skills/36_data_privacy/SKILL.md",
+      "size": 617
+    },
+    {
+      "path": "skills/37_retraction_citation_integrity/SKILL.md",
+      "size": 649
+    },
+    {
+      "path": "skills/38_equations_units_numerical_consistency/SKILL.md",
+      "size": 1115
+    },
+    {
+      "path": "skills/39_literature_search_provenance/SKILL.md",
+      "size": 940
+    },
+    {
+      "path": "skills/40_review_reliability_repeatability/SKILL.md",
+      "size": 897
+    },
+    {
+      "path": "skills/41_domain_standard_router/SKILL.md",
+      "size": 912
+    },
+    {
+      "path": "skills/42_review_bias_fairness/SKILL.md",
+      "size": 870
+    },
+    {
+      "path": "skills/43_major_comment_admission/SKILL.md",
+      "size": 912
+    },
+    {
+      "path": "skills/44_electrochemistry_fuel_cells/SKILL.md",
+      "size": 1431
+    },
+    {
+      "path": "skills/45_materials_characterization/SKILL.md",
+      "size": 1050
+    },
+    {
+      "path": "skills/46_environmental_water_processes/SKILL.md",
+      "size": 1052
+    },
+    {
+      "path": "skills/47_microbiology_biofilms_omics/SKILL.md",
+      "size": 982
+    },
+    {
+      "path": "skills/48_analytical_chemistry_measurement/SKILL.md",
+      "size": 917
+    },
+    {
+      "path": "skills/49_energy_lca_tea/SKILL.md",
+      "size": 914
+    },
+    {
+      "path": "skills/50_computational_science_numerics/SKILL.md",
+      "size": 891
+    },
+    {
+      "path": "skills/51_ml_for_science/SKILL.md",
+      "size": 982
+    },
+    {
+      "path": "skills/52_experimental_metrology_uncertainty/SKILL.md",
+      "size": 901
+    },
+    {
+      "path": "skills/53_chemical_kinetics_transport/SKILL.md",
+      "size": 918
+    },
+    {
+      "path": "skills/54_spectroscopy_microscopy/SKILL.md",
+      "size": 822
+    },
+    {
+      "path": "skills/55_scaleup_process_engineering/SKILL.md",
+      "size": 918
+    },
+    {
+      "path": "templates/AI_USE_DISCLOSURE_TEMPLATE.md",
+      "size": 596
+    },
+    {
+      "path": "templates/FULL_AUDIT_TEMPLATE.md",
+      "size": 1206
+    },
+    {
+      "path": "templates/JOURNAL_MATRIX_TEMPLATE.md",
+      "size": 412
+    },
+    {
+      "path": "templates/JOURNAL_REVIEW_TEMPLATE.md",
+      "size": 1083
+    },
+    {
+      "path": "templates/MAJOR_COMMENT_TEMPLATE.md",
+      "size": 1138
+    },
+    {
+      "path": "templates/REVISION_CONCERN_LEDGER.md",
+      "size": 372
+    },
+    {
+      "path": "tests/QUALITY_GATES.md",
+      "size": 3347
+    },
+    {
+      "path": "tests/REGRESSION_CASES.md",
+      "size": 2208
+    },
+    {
+      "path": "tests/SELF_AUDIT_CHECKLIST.md",
+      "size": 2187
+    },
+    {
+      "path": "tests/platform/test_additional_concern_precision.py",
+      "size": 1428
+    },
+    {
+      "path": "tests/platform/test_benchmark_corpus.py",
+      "size": 326
+    },
+    {
+      "path": "tests/platform/test_benchmark_metrics.py",
+      "size": 1342
+    },
+    {
+      "path": "tests/platform/test_binary_regression.py",
+      "size": 421
+    },
+    {
+      "path": "tests/platform/test_cache.py",
+      "size": 180
+    },
+    {
+      "path": "tests/platform/test_closure.py",
+      "size": 213
+    },
+    {
+      "path": "tests/platform/test_code_metrics.py",
+      "size": 225
+    },
+    {
+      "path": "tests/platform/test_consensus.py",
+      "size": 365
+    },
+    {
+      "path": "tests/platform/test_contract_sync.py",
+      "size": 320
+    },
+    {
+      "path": "tests/platform/test_disagreement.py",
+      "size": 291
+    },
+    {
+      "path": "tests/platform/test_docx_inspector.py",
+      "size": 386
+    },
+    {
+      "path": "tests/platform/test_eval_platform.py",
+      "size": 898
+    },
+    {
+      "path": "tests/platform/test_exports.py",
+      "size": 252
+    },
+    {
+      "path": "tests/platform/test_federated_offline.py",
+      "size": 449
+    },
+    {
+      "path": "tests/platform/test_final_validation_hardening.py",
+      "size": 1618
+    },
+    {
+      "path": "tests/platform/test_finalization.py",
+      "size": 2098
+    },
+    {
+      "path": "tests/platform/test_ingestion_sections.py",
+      "size": 264
+    },
+    {
+      "path": "tests/platform/test_latex_inspector.py",
+      "size": 278
+    },
+    {
+      "path": "tests/platform/test_mode_dags.py",
+      "size": 616
+    },
+    {
+      "path": "tests/platform/test_modes.py",
+      "size": 211
+    },
+    {
+      "path": "tests/platform/test_notebook_inspector.py",
+      "size": 291
+    },
+    {
+      "path": "tests/platform/test_package_inspector.py",
+      "size": 258
+    },
+    {
+      "path": "tests/platform/test_package_role_inference.py",
+      "size": 785
+    },
+    {
+      "path": "tests/platform/test_plugin_registry.py",
+      "size": 138
+    },
+    {
+      "path": "tests/platform/test_profiles.py",
+      "size": 499
+    },
+    {
+      "path": "tests/platform/test_provenance.py",
+      "size": 295
+    },
+    {
+      "path": "tests/platform/test_provider_registry.py",
+      "size": 196
+    },
+    {
+      "path": "tests/platform/test_rebuttal.py",
+      "size": 227
+    },
+    {
+      "path": "tests/platform/test_reference_signals.py",
+      "size": 315
+    },
+    {
+      "path": "tests/platform/test_reporting.py",
+      "size": 372
+    },
+    {
+      "path": "tests/platform/test_repro_env.py",
+      "size": 246
+    },
+    {
+      "path": "tests/platform/test_reviewer_router.py",
+      "size": 388
+    },
+    {
+      "path": "tests/platform/test_revision_diff.py",
+      "size": 178
+    },
+    {
+      "path": "tests/platform/test_run_registry.py",
+      "size": 550
+    },
+    {
+      "path": "tests/platform/test_safe_path.py",
+      "size": 184
+    },
+    {
+      "path": "tests/platform/test_scholarly_dedupe.py",
+      "size": 308
+    },
+    {
+      "path": "tests/platform/test_scholarly_rank.py",
+      "size": 324
+    },
+    {
+      "path": "tests/platform/test_search_provider_registry.py",
+      "size": 160
+    },
+    {
+      "path": "tests/platform/test_security_secrets.py",
+      "size": 211
+    },
+    {
+      "path": "tests/platform/test_spreadsheet_inspector.py",
+      "size": 268
+    },
+    {
+      "path": "tests/platform/test_workspace.py",
+      "size": 504
+    },
+    {
+      "path": "tests/runtime/test_all_llm_boundaries_structured.py",
+      "size": 625
+    },
+    {
+      "path": "tests/runtime/test_benchmark_harness.py",
+      "size": 277
+    },
+    {
+      "path": "tests/runtime/test_benchmark_mechanism_judge.py",
+      "size": 2534
+    },
+    {
+      "path": "tests/runtime/test_canonical_identifiers.py",
+      "size": 1476
+    },
+    {
+      "path": "tests/runtime/test_citation_semantic_entailment.py",
+      "size": 1978
+    },
+    {
+      "path": "tests/runtime/test_citation_verifier_integrity.py",
+      "size": 1633
+    },
+    {
+      "path": "tests/runtime/test_cli_metadata.py",
+      "size": 305
+    },
+    {
+      "path": "tests/runtime/test_core_prompt_contract.py",
+      "size": 2329
+    },
+    {
+      "path": "tests/runtime/test_document_loader.py",
+      "size": 269
+    },
+    {
+      "path": "tests/runtime/test_engine.py",
+      "size": 9605
+    },
+    {
+      "path": "tests/runtime/test_evidence_chase.py",
+      "size": 4986
+    },
+    {
+      "path": "tests/runtime/test_evidence_graph.py",
+      "size": 541
+    },
+    {
+      "path": "tests/runtime/test_external_anchor_materialization.py",
+      "size": 1655
+    },
+    {
+      "path": "tests/runtime/test_hard_provenance_gate.py",
+      "size": 4875
+    },
+    {
+      "path": "tests/runtime/test_invariants.py",
+      "size": 1000
+    },
+    {
+      "path": "tests/runtime/test_json_contract_strictness.py",
+      "size": 893
+    },
+    {
+      "path": "tests/runtime/test_public_demo.py",
+      "size": 1103
+    },
+    {
+      "path": "tests/runtime/test_resume.py",
+      "size": 920
+    },
+    {
+      "path": "tests/runtime/test_review_pipeline.py",
+      "size": 8383
+    },
+    {
+      "path": "tests/runtime/test_review_pipeline_integration.py",
+      "size": 4693
+    },
+    {
+      "path": "tests/runtime/test_review_pipeline_rules.py",
+      "size": 4660
+    },
+    {
+      "path": "tests/runtime/test_security.py",
+      "size": 286
+    },
+    {
+      "path": "tests/runtime/test_validation_integrity_contract.py",
+      "size": 1256
+    },
+    {
+      "path": "tests/runtime/test_verifier_independence.py",
+      "size": 1432
+    },
+    {
+      "path": "validation/CLOSURE_MATRIX.md",
+      "size": 3512
+    },
+    {
+      "path": "validation/README.md",
+      "size": 2305
+    },
+    {
+      "path": "validation/SUCCESS_CRITERIA.json",
+      "size": 1368
+    },
+    {
+      "path": "validation/VALIDATION_RELEASE.json",
+      "size": 2305
+    },
+    {
+      "path": "workflow/PIPELINE.md",
+      "size": 4507
+    }
+  ]
+}

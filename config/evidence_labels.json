@@ -1,0 +1,13 @@
+{
+  "MS": "Directly supported by the main manuscript",
+  "SUPP": "Directly supported by supplement/appendix",
+  "CODE": "Directly supported by inspected code/repository material",
+  "DATA": "Directly supported by supplied data",
+  "CALC": "Independently calculated from supplied material",
+  "CROSS": "Established by cross-file or cross-section consistency checking",
+  "EXT": "Externally verified using an opened/inspected reliable source",
+  "INF": "Reviewer inference from available evidence",
+  "EXT-REQ": "Requires external verification before definitive conclusion",
+  "UNK": "Cannot be established from available material",
+  "POLICY": "Derived from a verified publisher/ethics/reporting policy"
+}

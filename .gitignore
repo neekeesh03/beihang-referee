@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments and packaging
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/*.whl
+dist/*.tar.gz
+
+# Local Referee state and outputs
+.referee/
+runs/
+artifacts/
+*.sqlite
+*.sqlite3
+
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Release build output
+release-dist/
+wheelhouse/

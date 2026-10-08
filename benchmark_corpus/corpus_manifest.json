@@ -1,0 +1,29 @@
+{
+  "scientific_defect_cases": 420,
+  "revision_pairs": 160,
+  "rebuttal_cases": 180,
+  "categories": [
+    "adequate_prediction",
+    "adequately_supported",
+    "baseline_obsolescence",
+    "causal_without_identification",
+    "citation_placeholder",
+    "data_leakage",
+    "denominator_mismatch",
+    "effect_ci_inconsistency",
+    "figure_text_conflict",
+    "generalization_scope",
+    "harmless_style",
+    "missing_negative_control",
+    "multiple_testing",
+    "novelty_overclaim",
+    "optimistic_validation",
+    "posthoc_primary",
+    "prompt_injection",
+    "reporting_gap",
+    "sample_pseudoreplication",
+    "unit_inconsistency"
+  ],
+  "domain_science_cases": 288,
+  "note": "All content is synthetic and non-authoritative."
+}

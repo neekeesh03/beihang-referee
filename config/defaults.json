@@ -1,0 +1,98 @@
+{
+  "default_mode": "deep",
+  "default_context_mode": "author_side_or_public_manuscript_diagnostic",
+  "output_strategy": "progressive_disclosure",
+  "journal_candidate_target": 10,
+  "journal_candidate_minimum_when_plausible": 5,
+  "never_pad_journal_candidates": true,
+  "reference_derived_journal_preference": true,
+  "external_journal_fill_allowed": true,
+  "recent_literature_years": 5,
+  "frontier_months": 24,
+  "very_recent_months": 12,
+  "recent_comparable_papers_per_journal": {
+    "min": 3,
+    "max": 10
+  },
+  "nearest_prior_art_target": {
+    "standard": [
+      3,
+      6
+    ],
+    "deep": [
+      5,
+      10
+    ],
+    "exhaustive": [
+      8,
+      15
+    ]
+  },
+  "central_claim_target": {
+    "standard": [
+      3,
+      8
+    ],
+    "deep": [
+      3,
+      12
+    ],
+    "exhaustive": [
+      5,
+      15
+    ]
+  },
+  "score_scale": "integer_1_to_10_or_NA",
+  "scorecard_default": "gate_first",
+  "global_score_mean": false,
+  "acceptance_probability": "never_generate",
+  "external_search_for_novelty": "required_when_available",
+  "search_ledger_required_for_novelty_critical_claims": true,
+  "pivotal_external_source_opening_required_when_available": true,
+  "current_journal_policy_verification": "required_when_formal_review_implicated",
+  "execute_untrusted_code": false,
+  "network_access_for_manuscript_code": false,
+  "prompt_injection_defense": true,
+  "major_comment_requires_evidence_anchor": true,
+  "major_comment_requires_claim_id": true,
+  "major_comment_requires_scientific_consequence": true,
+  "major_comment_requires_minimum_resolution": true,
+  "major_comment_requires_closure_criterion": true,
+  "major_comment_requires_steelman_survival": true,
+  "formal_review_policy_gate": "strict",
+  "exhaustive_repeatability_check": true,
+  "repeatability_claim_count": [
+    3,
+    5
+  ],
+  "abstention_allowed": true,
+  "runtime": {
+    "typed_state": true,
+    "checkpoint_each_stage": true,
+    "resume_supported": true,
+    "event_log": "jsonl",
+    "provider_abstraction": true,
+    "parallel_specialists": true,
+    "bounded_retries": true,
+    "bounded_evidence_chase": {
+      "standard": 0,
+      "deep": 1,
+      "exhaustive": 2
+    },
+    "independent_concern_verification": true,
+    "fail_closed_on_unverified_major_concern": true,
+    "mode_specific_dags": true,
+    "structured_output_at_every_llm_boundary": true,
+    "independent_trajectory_consensus_exhaustive": 5,
+    "post_validity_pairwise_priority": true
+  },
+  "default_review_mode": "initial",
+  "major_comment_requires_valid_claim_reference": true,
+  "major_comment_requires_verified_anchor_integrity": true,
+  "major_comment_requires_evidence_entailment": true,
+  "major_comment_requires_fresh_verifier_context": true,
+  "major_comment_verification_hash_bound": true,
+  "priority_only_after_validity": true,
+  "literature_search_fail_closed_for_novelty": true,
+  "pipeline": "core"
+}

@@ -1,0 +1,8 @@
+{
+  "mode": "deep",
+  "review_mode": "reproducibility",
+  "enable_literature_search": false,
+  "enable_journal_calibration": false,
+  "enable_reproducibility_audit": true,
+  "enable_package_audit": true
+}

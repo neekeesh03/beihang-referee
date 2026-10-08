@@ -1,0 +1,529 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "review_protocol": {
+      "const": "beihang-referee"
+    },
+    "review_mode": {
+      "enum": [
+        "initial",
+        "revision",
+        "rebuttal",
+        "meta_review",
+        "editorial_screen",
+        "reproducibility"
+      ]
+    },
+    "manuscript_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "research_question": {
+          "type": "string"
+        },
+        "approach": {
+          "type": "string"
+        },
+        "main_results": {
+          "type": "string"
+        },
+        "claimed_contribution": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "research_question",
+        "approach",
+        "main_results",
+        "claimed_contribution"
+      ]
+    },
+    "claim_registry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "pattern": "^C[0-9]{3,}$"
+          },
+          "claim_text": {
+            "type": "string"
+          },
+          "claim_type": {
+            "enum": [
+              "descriptive",
+              "associational",
+              "causal",
+              "predictive",
+              "mechanistic",
+              "comparative",
+              "methodological",
+              "theoretical",
+              "novelty",
+              "generalisability",
+              "other"
+            ]
+          },
+          "importance": {
+            "enum": [
+              "central",
+              "supporting",
+              "peripheral"
+            ]
+          },
+          "location": {
+            "type": "string"
+          },
+          "supporting_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^A[0-9]{3,}$"
+            }
+          },
+          "support_strength": {
+            "enum": [
+              "strong",
+              "moderate",
+              "weak",
+              "unclear",
+              "unsupported"
+            ]
+          }
+        },
+        "required": [
+          "claim_id",
+          "claim_text",
+          "claim_type",
+          "importance",
+          "location",
+          "supporting_evidence",
+          "support_strength"
+        ]
+      }
+    },
+    "evidence_anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "anchor_id": {
+            "type": "string",
+            "pattern": "^A[0-9]{3,}$"
+          },
+          "source_type": {
+            "enum": [
+              "manuscript",
+              "external"
+            ]
+          },
+          "section": {
+            "type": "string"
+          },
+          "page_or_location": {
+            "type": "string"
+          },
+          "source_identifier": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "year": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          },
+          "quote_or_fact": {
+            "type": "string"
+          },
+          "verification_status": {
+            "const": "requires_deterministic_validation"
+          }
+        },
+        "required": [
+          "anchor_id",
+          "source_type",
+          "section",
+          "page_or_location",
+          "source_identifier",
+          "title",
+          "year",
+          "quote_or_fact",
+          "verification_status"
+        ]
+      }
+    },
+    "strengths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "strength": {
+            "type": "string"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "anchor_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "strength",
+          "claim_ids",
+          "anchor_ids"
+        ]
+      }
+    },
+    "major_concerns": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "major_comment.schema.json",
+        "title": "RefereeMajorConcern",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "concern_id",
+          "title",
+          "severity",
+          "claim_ids",
+          "evidence_anchor_ids",
+          "failure_mechanism",
+          "scientific_consequence",
+          "minimum_resolution",
+          "closure_criterion",
+          "reviewer_confidence",
+          "steelman",
+          "steelman_survives",
+          "steelman_survival_reason",
+          "external_verification_required",
+          "uncertainties",
+          "suggested_validation_checks"
+        ],
+        "properties": {
+          "concern_id": {
+            "type": "string",
+            "pattern": "^MC(?:[0-9]{3,}|-[A-Z0-9-]+-[0-9]{4})$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 3
+          },
+          "severity": {
+            "const": "major"
+          },
+          "claim_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^C(?:[0-9]{3,}|-[A-Z0-9-]+-[0-9]{4})$"
+            }
+          },
+          "evidence_anchor_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^A(?:[0-9]{3,}|-[A-Z0-9-]+-[0-9]{4})$"
+            }
+          },
+          "failure_mechanism": {
+            "type": "string",
+            "minLength": 3
+          },
+          "scientific_consequence": {
+            "type": "string",
+            "minLength": 3
+          },
+          "minimum_resolution": {
+            "type": "string",
+            "minLength": 3
+          },
+          "closure_criterion": {
+            "type": "string",
+            "minLength": 3
+          },
+          "reviewer_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "steelman": {
+            "type": "string",
+            "minLength": 3
+          },
+          "steelman_survives": {
+            "type": "boolean"
+          },
+          "steelman_survival_reason": {
+            "type": "string",
+            "minLength": 3
+          },
+          "external_verification_required": {
+            "type": "boolean"
+          },
+          "uncertainties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "suggested_validation_checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "minor_concerns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "concern_id": {
+            "type": "string",
+            "pattern": "^MI[0-9]{3,}$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "severity": {
+            "const": "minor"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_anchor_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "issue": {
+            "type": "string"
+          },
+          "consequence": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string"
+          },
+          "reviewer_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        },
+        "required": [
+          "concern_id",
+          "title",
+          "severity",
+          "claim_ids",
+          "evidence_anchor_ids",
+          "issue",
+          "consequence",
+          "resolution",
+          "reviewer_confidence"
+        ]
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "pattern": "^O[0-9]{3,}$"
+          },
+          "text": {
+            "type": "string"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_anchor_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "observation_id",
+          "text",
+          "claim_ids",
+          "evidence_anchor_ids"
+        ]
+      }
+    },
+    "novelty_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "supported",
+            "questioned",
+            "external_verification_required",
+            "not_applicable"
+          ]
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "external_anchor_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "assessment",
+        "external_anchor_ids"
+      ]
+    },
+    "reproducibility_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "reproducible",
+            "partially_reproducible",
+            "insufficient_information",
+            "not_applicable"
+          ]
+        },
+        "assessment": {
+          "type": "string"
+        },
+        "missing_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "assessment",
+        "missing_requirements"
+      ]
+    },
+    "numerical_consistency": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "consistent",
+            "issues_found",
+            "not_assessable"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "status",
+        "issues"
+      ]
+    },
+    "review_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "central_claims_supported": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "central_claims_at_risk": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "strongest_concern_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "overall_scientific_confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "remaining_uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "central_claims_supported",
+        "central_claims_at_risk",
+        "strongest_concern_ids",
+        "overall_scientific_confidence",
+        "remaining_uncertainties"
+      ]
+    }
+  },
+  "required": [
+    "review_protocol",
+    "review_mode",
+    "manuscript_summary",
+    "claim_registry",
+    "evidence_anchors",
+    "strengths",
+    "major_concerns",
+    "minor_concerns",
+    "observations",
+    "novelty_assessment",
+    "reproducibility_assessment",
+    "numerical_consistency",
+    "review_summary"
+  ]
+}

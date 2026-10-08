@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "critical_gates.schema.json",
+  "title": "CriticalGates",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "comprehensibility": {"$ref": "#/$defs/gate"},
+    "contribution_novelty": {"$ref": "#/$defs/gate"},
+    "theory_logic": {"$ref": "#/$defs/gate"},
+    "evidence_adequacy": {"$ref": "#/$defs/gate"},
+    "validation_robustness": {"$ref": "#/$defs/gate"},
+    "numerical_consistency": {"$ref": "#/$defs/gate"},
+    "reproducibility_integrity": {"$ref": "#/$defs/gate"},
+    "venue_fit": {"$ref": "#/$defs/gate"}
+  },
+  "required": ["comprehensibility", "contribution_novelty", "theory_logic", "evidence_adequacy", "validation_robustness", "numerical_consistency", "reproducibility_integrity"],
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "rationale", "confidence"],
+      "properties": {
+        "status": {"enum": ["PASS", "CONDITIONAL", "FAIL", "UNASSESSABLE"]},
+        "rationale": {"type": "string", "minLength": 5},
+        "confidence": {"enum": ["high", "moderate", "low"]},
+        "concern_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "metrology_measurement",
+  "reviewer": "metrology_measurement",
+  "triggers": [
+    "calibration",
+    "limit of detection",
+    "lod",
+    "loq",
+    "measurement uncertainty",
+    "traceability"
+  ],
+  "skills": [
+    "48_analytical_chemistry_measurement",
+    "52_experimental_metrology_uncertainty"
+  ]
+}

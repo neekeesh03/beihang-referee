@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search_ledger.schema.json",
+  "title": "LiteratureSearchLedger",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["search_id", "claim_ids", "search_date", "source", "query_family", "query", "pivotal_sources", "limitations"],
+    "properties": {
+      "search_id": {"type": "string"},
+      "claim_ids": {"type": "array", "items": {"type": "string"}},
+      "search_date": {"type": "string", "minLength": 8},
+      "source": {"type": "string", "minLength": 1},
+      "query_family": {
+        "enum": ["exact_terms", "synonyms", "adjacent_constructs", "same_question_other_method", "same_method_other_question", "rival_theory", "review_synthesis", "replication_null", "frontier_baselines", "other"]
+      },
+      "query": {"type": "string", "minLength": 1},
+      "filters": {"type": ["string", "null"]},
+      "candidates_inspected": {"type": ["integer", "null"], "minimum": 0},
+      "pivotal_sources": {"type": "array", "items": {"type": "string"}},
+      "contradictory_or_null_sources": {"type": "array", "items": {"type": "string"}},
+      "limitations": {"type": "string"},
+      "materially_changed_conclusion": {"type": ["boolean", "null"]}
+    }
+  }
+}

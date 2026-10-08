@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "claim_registry.schema.json",
+  "title": "ClaimRegistry",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["claim_id", "claim", "claim_type", "centrality", "scope", "proof_burden", "support_status", "confidence"],
+    "properties": {
+      "claim_id": {"type": "string", "pattern": "^C-[0-9]+$"},
+      "claim": {"type": "string", "minLength": 3},
+      "location": {"type": "string"},
+      "claim_type": {
+        "enum": ["descriptive", "associational", "causal", "mechanistic", "predictive", "theoretical", "methodological", "comparative", "novelty", "validation", "generalization", "translational", "utility", "other"]
+      },
+      "centrality": {"enum": ["central", "supporting", "peripheral"]},
+      "scope": {"type": "string", "minLength": 1},
+      "proof_burden": {"type": "string", "minLength": 1},
+      "evidence_anchors": {"type": "array", "items": {"$ref": "evidence_anchor.schema.json"}},
+      "analytical_bridge": {"type": ["string", "null"]},
+      "assumptions": {"type": "array", "items": {"type": "string"}},
+      "alternatives": {"type": "array", "items": {"type": "string"}},
+      "support_status": {
+        "enum": ["supported", "supported_with_qualification", "suggestive", "underdetermined", "unsupported", "contradicted", "not_tested", "unassessable"]
+      },
+      "recommended_claim_language": {"type": ["string", "null"]},
+      "confidence": {"enum": ["high", "moderate", "low"]}
+    }
+  }
+}

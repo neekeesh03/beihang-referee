@@ -1,0 +1,9 @@
+{
+  "mode": "exhaustive",
+  "review_mode": "initial",
+  "specialist_limit": 16,
+  "literature_query_budget": 30,
+  "repeatability_claims": 5,
+  "max_major_comments": 12,
+  "pipeline": "full"
+}

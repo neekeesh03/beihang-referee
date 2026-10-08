@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "journal_matrix.schema.json",
+  "title": "JournalCalibration",
+  "type": "array",
+  "minItems": 1,
+  "maxItems": 10,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["journal", "provenance", "why_relevant", "verification_status", "current_alignment"],
+    "properties": {
+      "journal": {"type": "string", "minLength": 1},
+      "provenance": {"enum": ["reference-derived", "externally-discovered"]},
+      "why_relevant": {"type": "string", "minLength": 5},
+      "verification_status": {"enum": ["current_official_verified", "partially_verified", "provisional"]},
+      "official_scope_source": {"type": ["string", "null"]},
+      "recent_comparables": {"type": "array", "items": {"type": "string"}},
+      "current_alignment": {
+        "enum": [
+          "currently_aligned",
+          "plausible_after_targeted_revision",
+          "plausible_after_major_development",
+          "scope_aligned_breadth_below_recent_comparables",
+          "contribution_aligned_validation_insufficient",
+          "specialist_or_method_audience_fit",
+          "poor_scope_match",
+          "insufficient_information"
+        ]
+      },
+      "key_gap": {"type": ["string", "null"]},
+      "revision_implication": {"type": ["string", "null"]}
+    }
+  }
+}

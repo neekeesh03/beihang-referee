@@ -1,0 +1,122 @@
+{
+  "profile_id": "nature-published-reference",
+  "label": "Nature published positive-control calibration",
+  "journal": "Nature",
+  "informal_calibration_only": true,
+  "note": "User-collected scores from ten published Nature papers reviewed once with the user's Referee workflow. This is an informal personal stopping-reference, not an acceptance threshold or scientific validation set.",
+  "metrics": {
+    "overall_scientific_quality": "overall_scientific_quality",
+    "importance_impact": "importance_impact",
+    "venue_fit": "nature_fit",
+    "novelty": "novelty",
+    "methodological_execution": "methodological_execution",
+    "statistical_inferential_rigor": "statistical_inferential_rigor",
+    "publication_readiness": "publication_readiness"
+  },
+  "papers": [
+    {
+      "paper_id": "P01",
+      "overall_scientific_quality": 7.5,
+      "importance_impact": 9.0,
+      "nature_fit": 9.0,
+      "novelty": 8.0,
+      "methodological_execution": 8.0,
+      "statistical_inferential_rigor": 5.0,
+      "publication_readiness": 6.5
+    },
+    {
+      "paper_id": "P02",
+      "overall_scientific_quality": 8.3,
+      "importance_impact": 9.4,
+      "nature_fit": 9.3,
+      "novelty": 8.8,
+      "methodological_execution": 8.4,
+      "statistical_inferential_rigor": 5.5,
+      "publication_readiness": 7.2
+    },
+    {
+      "paper_id": "P03",
+      "overall_scientific_quality": 8.0,
+      "importance_impact": 9.2,
+      "nature_fit": 9.0,
+      "novelty": 9.0,
+      "methodological_execution": 8.2,
+      "statistical_inferential_rigor": 6.6,
+      "publication_readiness": 7.4
+    },
+    {
+      "paper_id": "P04",
+      "overall_scientific_quality": 8.7,
+      "importance_impact": 9.1,
+      "nature_fit": 9.4,
+      "novelty": 9.1,
+      "methodological_execution": 8.6,
+      "statistical_inferential_rigor": 7.2,
+      "publication_readiness": 7.8
+    },
+    {
+      "paper_id": "P05",
+      "overall_scientific_quality": 8.7,
+      "importance_impact": 9.5,
+      "nature_fit": 9.7,
+      "novelty": 8.3,
+      "methodological_execution": 9.0,
+      "statistical_inferential_rigor": 7.6,
+      "publication_readiness": 8.4
+    },
+    {
+      "paper_id": "P06",
+      "overall_scientific_quality": 7.2,
+      "importance_impact": 9.0,
+      "nature_fit": 9.0,
+      "novelty": 8.0,
+      "methodological_execution": 8.0,
+      "statistical_inferential_rigor": 4.5,
+      "publication_readiness": 6.0
+    },
+    {
+      "paper_id": "P07",
+      "overall_scientific_quality": 6.6,
+      "importance_impact": 8.5,
+      "nature_fit": 8.0,
+      "novelty": 7.0,
+      "methodological_execution": 6.0,
+      "statistical_inferential_rigor": 5.5,
+      "publication_readiness": 5.5
+    },
+    {
+      "paper_id": "P08",
+      "overall_scientific_quality": 8.0,
+      "importance_impact": 9.2,
+      "nature_fit": 9.3,
+      "novelty": 8.7,
+      "methodological_execution": 8.6,
+      "statistical_inferential_rigor": 7.5,
+      "publication_readiness": 7.5
+    },
+    {
+      "paper_id": "P09",
+      "overall_scientific_quality": 7.8,
+      "importance_impact": 8.8,
+      "nature_fit": 9.0,
+      "novelty": 8.3,
+      "methodological_execution": 7.6,
+      "statistical_inferential_rigor": 6.2,
+      "publication_readiness": 6.8
+    },
+    {
+      "paper_id": "P10",
+      "overall_scientific_quality": 8.2,
+      "importance_impact": 9.0,
+      "nature_fit": 9.5,
+      "novelty": 8.3,
+      "methodological_execution": 8.8,
+      "statistical_inferential_rigor": 7.2,
+      "publication_readiness": 7.4
+    }
+  ],
+  "configuration_id": "published-reference-profile",
+  "decision_support_enabled": false,
+  "mapping_note": "The reference scores are provided for informal calibration only. They should not change scientific concern admission or submission state.",
+  "strictly_comparable_to_current": false
+}

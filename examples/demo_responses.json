@@ -1,0 +1,105 @@
+{
+  "core_review": {
+    "review_protocol": "beihang-referee",
+    "classification": {
+      "field": "demonstration",
+      "domain": "clinical/observational methods",
+      "design": "single-cohort pre-post observational study",
+      "inference_type": "causal",
+      "study_type": "empirical"
+    },
+    "manuscript_summary": {
+      "research_question": "Does intervention X improve outcome Y?",
+      "approach": "Single observational cohort with pre/post outcome measurement.",
+      "main_results": "Mean outcome Y increases from 50 to 60 units after treatment in 80 participants.",
+      "claimed_contribution": "Intervention X causes a 20% improvement in outcome Y.",
+      "developmental_stage": "Demonstration manuscript with a central causal claim."
+    },
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Intervention X causes a 20% improvement in outcome Y.",
+        "claim_type": "causal",
+        "centrality": "central",
+        "scope": "study cohort",
+        "proof_burden": ["credible counterfactual", "temporal ordering", "control of alternative explanations"],
+        "evidence_anchor_ids": ["A001"],
+        "support_status": "weak",
+        "confidence": "moderate",
+        "alternatives": ["A 20% pre/post association is observed in the cohort."]
+      }
+    ],
+    "evidence_anchors": [
+      {
+        "anchor_id": "A001",
+        "source_type": "manuscript",
+        "document_id": "D1",
+        "locator": "Methods",
+        "quote_or_fact": "A single observational cohort of 80 participants received intervention X. There was no randomized control group.",
+        "supports": "C001",
+        "confidence": "high",
+        "url": null,
+        "content_status": null,
+        "content_sha256": null
+      }
+    ],
+    "candidate_concerns": [
+      {
+        "concern_id": "DEMO-M001",
+        "title": "The design does not identify the headline causal effect",
+        "severity": "major",
+        "claim_ids": ["C001"],
+        "evidence_anchor_ids": ["A001"],
+        "failure_mechanism": "A single-group pre-post comparison has no concurrent counterfactual and cannot separate intervention effects from time trends, regression to the mean, co-interventions, or other changes.",
+        "scientific_consequence": "The evidence can support a within-cohort pre-post association but cannot identify the stated causal treatment effect.",
+        "minimum_resolution": "Reframe the central conclusion as associational unless a design or analysis that credibly identifies the treatment effect is available.",
+        "closure_criterion": "The title, abstract, and conclusion no longer make a causal claim, or the manuscript provides and validates a defensible identification strategy with appropriate comparison data.",
+        "reviewer_confidence": 0.95,
+        "external_verification_required": false,
+        "uncertainties": [],
+        "suggested_validation_checks": ["Check whether any concurrent comparison group or identification strategy is described elsewhere in the manuscript."]
+      }
+    ],
+    "minor_concerns": [],
+    "strengths": ["The pre/post numerical result is stated clearly."],
+    "observations": [],
+    "literature_queries": [],
+    "specialist_requests": [
+      {
+        "task_id": "T001",
+        "specialist": "statistics_causal",
+        "claim_ids": ["C001"],
+        "objective": "Audit whether the design identifies the central causal claim.",
+        "priority": "high",
+        "evidence_needs": ["study design", "comparison strategy", "causal identification assumptions"]
+      }
+    ],
+    "overall_scientific_confidence": 0.45,
+    "remaining_uncertainties": []
+  },
+  "core_specialist:statistics_causal": {
+    "candidate_concerns": [],
+    "evidence_anchors": [],
+    "notes": ["The core concern already captures the decisive causal-identification limitation."],
+    "uncertainties": []
+  },
+  "core_verify:MC-CORE-REVIEWER-0001": {
+    "status": "verified",
+    "severity": "major",
+    "steelman": "The authors may intend the word 'causes' as informal shorthand for the observed pre/post change.",
+    "steelman_survives": true,
+    "steelman_survival_reason": "The abstract and conclusion explicitly state a causal effect, so the distinction between association and causation remains scientifically consequential.",
+    "rationale": "The manuscript anchor directly establishes a single uncontrolled pre/post design, while the central claim is explicitly causal. The requested resolution is limited to correcting that mismatch or supplying a defensible identification strategy.",
+    "confidence": 0.96,
+    "entailment": {
+      "claim_mapping_valid": true,
+      "anchors_support_failure_mechanism": true,
+      "scientific_consequence_proportionate": true,
+      "minimum_resolution_sufficient": true,
+      "closure_criterion_testable": true,
+      "steelman_survival_supported": true,
+      "manuscript_contradiction_found": false
+    },
+    "uncertainties": []
+  }
+}

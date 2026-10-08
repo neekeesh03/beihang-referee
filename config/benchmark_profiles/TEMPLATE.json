@@ -1,0 +1,32 @@
+{
+  "profile_id": "example-profile",
+  "label": "Example published-paper calibration",
+  "journal": "Target Journal",
+  "informal_calibration_only": true,
+  "configuration_id": "beihang-beihang-referee:<model>:<prompt-hash>",
+  "strictly_comparable_to_current": true,
+  "decision_support_enabled": false,
+  "note": "Set decision_support_enabled=true only after you intentionally decide this same-configuration reference set is suitable for your personal stopping workflow.",
+  "mapping_note": "Use the seven summary fields expected below.",
+  "metrics": {
+    "overall_scientific_quality": "overall_scientific_quality",
+    "importance_impact": "importance_impact",
+    "venue_fit": "venue_fit",
+    "novelty": "novelty",
+    "methodological_execution": "methodological_execution",
+    "statistical_inferential_rigor": "statistical_inferential_rigor",
+    "publication_readiness": "publication_readiness"
+  },
+  "papers": [
+    {
+      "paper_id": "P01",
+      "overall_scientific_quality": 8.0,
+      "importance_impact": 9.0,
+      "venue_fit": 9.0,
+      "novelty": 8.5,
+      "methodological_execution": 8.3,
+      "statistical_inferential_rigor": 7.0,
+      "publication_readiness": 7.5
+    }
+  ]
+}

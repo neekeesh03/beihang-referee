@@ -1,0 +1,47 @@
+{
+  "name": "ARRIVE family",
+  "routing_terms": [
+    "animal study",
+    "mice",
+    "mouse",
+    "rat",
+    "in vivo animal"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "animals",
+      "label": "animal characteristics",
+      "terms": [
+        "species",
+        "strain",
+        "sex"
+      ]
+    },
+    {
+      "id": "sample",
+      "label": "sample size",
+      "terms": [
+        "sample size"
+      ]
+    },
+    {
+      "id": "random",
+      "label": "randomization/blinding",
+      "terms": [
+        "random",
+        "blinded"
+      ]
+    },
+    {
+      "id": "welfare",
+      "label": "welfare/ethics",
+      "terms": [
+        "animal ethics",
+        "welfare",
+        "iacuc"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

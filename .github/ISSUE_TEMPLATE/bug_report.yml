@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible defect in Referee
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Include the command, review mode/profile, and a minimal non-confidential example when possible.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python version, OS, Referee commit, provider/backend, and relevant optional dependencies.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confidentiality
+    attributes:
+      label: Confidentiality check
+      options:
+        - label: I have removed confidential manuscript content, credentials, and personal data from this issue.
+          required: true

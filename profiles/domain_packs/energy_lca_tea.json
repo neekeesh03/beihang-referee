@@ -1,0 +1,16 @@
+{
+  "name": "energy_lca_tea",
+  "reviewer": "energy_lca_tea",
+  "triggers": [
+    "life cycle assessment",
+    "lca",
+    "techno-economic",
+    "tea",
+    "net energy",
+    "energy balance"
+  ],
+  "skills": [
+    "49_energy_lca_tea",
+    "55_scaleup_process_engineering"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "microbiology_omics",
+  "reviewer": "microbiology_omics",
+  "triggers": [
+    "biofilm",
+    "microbiome",
+    "16s",
+    "metagenomics",
+    "microbial community"
+  ],
+  "skills": [
+    "47_microbiology_biofilms_omics"
+  ]
+}

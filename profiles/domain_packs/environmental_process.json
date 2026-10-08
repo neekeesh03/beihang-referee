@@ -1,0 +1,17 @@
+{
+  "name": "environmental_process",
+  "reviewer": "environmental_process",
+  "triggers": [
+    "wastewater",
+    "water treatment",
+    "reactor",
+    "hydraulic retention time",
+    "organic loading rate",
+    "cod removal"
+  ],
+  "skills": [
+    "46_environmental_water_processes",
+    "53_chemical_kinetics_transport",
+    "55_scaleup_process_engineering"
+  ]
+}

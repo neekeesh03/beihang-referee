@@ -1,0 +1,23 @@
+{
+  "journal": "Example Journal",
+  "retrieved_at": "YYYY-MM-DD",
+  "scope": "Paste or summarize the current official scope.",
+  "audience": "Paste or summarize the current official audience/breadth statement.",
+  "editorial_criteria": [
+    "Current official criterion 1",
+    "Current official criterion 2"
+  ],
+  "article_types": [
+    "Research Article"
+  ],
+  "sources": [
+    {
+      "title": "Official journal scope page",
+      "url": "https://example.org/official-scope",
+      "retrieved_at": "YYYY-MM-DD",
+      "quote_or_fact": "Short verified fact from the official page.",
+      "source_kind": "official_journal_or_publisher"
+    }
+  ],
+  "notes": "Use official journal/publisher pages. This profile is frozen input for target-journal calibration."
+}

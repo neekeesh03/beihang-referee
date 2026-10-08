@@ -1,0 +1,54 @@
+name: Review-quality report
+description: Report a reproducible false positive, false negative, admission, evidence, or closure problem
+title: "[Review quality] "
+labels: [review-quality]
+body:
+  - type: dropdown
+    id: failure_type
+    attributes:
+      label: Failure type
+      options:
+        - False-positive concern
+        - Missed important concern / false negative
+        - Wrong severity
+        - Unsupported evidence anchor or citation
+        - Concern incorrectly admitted or rejected
+        - Incorrect closure criterion / revision assessment
+        - Other scientific-review behavior
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+      description: Describe the smallest reproducible behavior. Include concern/claim/evidence IDs when available.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected scientific behavior
+      description: Explain what the scientifically correct outcome should be and why.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: Referee version/commit, pipeline, mode/profile, provider/model family, verifier model family, and search setting.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal non-confidential reproduction
+      description: Prefer a synthetic or public excerpt. Do not paste confidential manuscript text or hidden model reasoning.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confidentiality
+    attributes:
+      label: Confidentiality check
+      options:
+        - label: I removed confidential manuscripts, reviewer reports, credentials, personal data, and publisher-restricted content.
+          required: true

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "review_output.schema.json",
+  "title": "RefereeOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["policy_status", "classification", "decision_brief", "central_claims", "critical_gates", "major_comments", "reviewer_confidence", "review_stability", "journal_landscape"],
+  "properties": {
+    "policy_status": {"type": "object"},
+    "classification": {"type": "object"},
+    "decision_brief": {"type": "object"},
+    "central_claims": {"$ref": "claim_registry.schema.json"},
+    "search_ledger": {"$ref": "search_ledger.schema.json"},
+    "critical_gates": {"$ref": "critical_gates.schema.json"},
+    "scorecard": {"type": ["object", "null"]},
+    "major_comments": {"type": "array", "items": {"$ref": "major_comment.schema.json"}},
+    "minor_comments": {"type": "array"},
+    "journal_landscape": {"type": "array", "maxItems": 10},
+    "reviewer_confidence": {"type": "object"},
+    "review_stability": {"enum": ["stable", "mostly_stable", "unstable", "unassessable"]},
+    "unresolved_material_disagreements": {"type": "array"},
+    "audit_appendices": {"type": "object"}
+  }
+}

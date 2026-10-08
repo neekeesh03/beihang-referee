@@ -1,0 +1,48 @@
+{
+  "name": "General ML reporting",
+  "routing_terms": [
+    "machine learning",
+    "deep learning",
+    "artificial intelligence",
+    "neural network"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "split",
+      "label": "data split",
+      "terms": [
+        "train",
+        "validation",
+        "test"
+      ]
+    },
+    {
+      "id": "leakage",
+      "label": "leakage safeguards",
+      "terms": [
+        "leakage",
+        "patient-level split",
+        "group split"
+      ]
+    },
+    {
+      "id": "baseline",
+      "label": "baseline comparison",
+      "terms": [
+        "baseline",
+        "benchmark"
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "label": "uncertainty",
+      "terms": [
+        "confidence interval",
+        "uncertainty",
+        "bootstrap"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

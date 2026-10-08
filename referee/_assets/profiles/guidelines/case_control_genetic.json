@@ -1,0 +1,47 @@
+{
+  "name": "Genetic association reporting",
+  "routing_terms": [
+    "genetic association",
+    "gwas",
+    "variant association",
+    "genome-wide"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "population",
+      "label": "population structure",
+      "terms": [
+        "population stratification",
+        "ancestry"
+      ]
+    },
+    {
+      "id": "qc",
+      "label": "quality control",
+      "terms": [
+        "quality control",
+        "call rate",
+        "hardy-weinberg"
+      ]
+    },
+    {
+      "id": "multiple",
+      "label": "multiple testing",
+      "terms": [
+        "multiple testing",
+        "bonferroni",
+        "fdr"
+      ]
+    },
+    {
+      "id": "replication",
+      "label": "replication",
+      "terms": [
+        "replication cohort",
+        "independent cohort"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

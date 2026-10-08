@@ -1,0 +1,45 @@
+{
+  "name": "COREQ family",
+  "routing_terms": [
+    "interview",
+    "focus group",
+    "qualitative study",
+    "thematic analysis"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "researcher",
+      "label": "researcher characteristics",
+      "terms": [
+        "researcher",
+        "interviewer"
+      ]
+    },
+    {
+      "id": "sampling",
+      "label": "sampling",
+      "terms": [
+        "purposive",
+        "sampling"
+      ]
+    },
+    {
+      "id": "coding",
+      "label": "coding/analysis",
+      "terms": [
+        "coding",
+        "theme",
+        "thematic"
+      ]
+    },
+    {
+      "id": "saturation",
+      "label": "saturation",
+      "terms": [
+        "saturation"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

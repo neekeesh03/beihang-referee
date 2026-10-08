@@ -1,0 +1,15 @@
+{
+  "name": "computational_science",
+  "reviewer": "computational_science",
+  "triggers": [
+    "finite element",
+    "computational fluid dynamics",
+    "cfd",
+    "numerical simulation",
+    "mesh independence"
+  ],
+  "skills": [
+    "50_computational_science_numerics",
+    "53_chemical_kinetics_transport"
+  ]
+}

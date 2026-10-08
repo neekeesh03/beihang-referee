@@ -1,0 +1,41 @@
+{
+  "name": "CARE family",
+  "routing_terms": [
+    "case report",
+    "case study patient"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "timeline",
+      "label": "timeline",
+      "terms": [
+        "timeline"
+      ]
+    },
+    {
+      "id": "consent",
+      "label": "patient consent",
+      "terms": [
+        "consent"
+      ]
+    },
+    {
+      "id": "diagnosis",
+      "label": "diagnostic assessment",
+      "terms": [
+        "diagnosis",
+        "diagnostic"
+      ]
+    },
+    {
+      "id": "followup",
+      "label": "follow-up",
+      "terms": [
+        "follow-up",
+        "follow up"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

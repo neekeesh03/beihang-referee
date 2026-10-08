@@ -1,0 +1,49 @@
+{
+  "name": "TRIPOD family",
+  "routing_terms": [
+    "prediction model",
+    "prognostic model",
+    "risk model",
+    "machine learning prediction"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "outcome",
+      "label": "outcome definition",
+      "terms": [
+        "outcome",
+        "endpoint"
+      ]
+    },
+    {
+      "id": "validation",
+      "label": "validation",
+      "terms": [
+        "internal validation",
+        "external validation",
+        "bootstrap",
+        "cross-validation"
+      ]
+    },
+    {
+      "id": "performance",
+      "label": "model performance",
+      "terms": [
+        "calibration",
+        "discrimination",
+        "auc",
+        "c-index"
+      ]
+    },
+    {
+      "id": "missing",
+      "label": "missing data",
+      "terms": [
+        "missing data",
+        "imputation"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}

@@ -1,0 +1,35 @@
+{
+  "validation_release": "Beihang-Referee-Validation",
+  "freeze_policy": "Protocol/gold/evaluator/code hashes are frozen before official benchmark result interpretation. Any material change creates a new experimental configuration.",
+  "created_at": "2026-10-07T16:19:10.584753+00:00",
+  "code_commit": "uncommitted-source-bundle",
+  "peer_review_prompt_sha256": "42c2385ef20a6827e1918d8e741fa02fbed8f77976df4da64c54831c16e503b0",
+  "verifier_prompt_sha256": "9860f9f9b4849ed1c58a113321d824555909c417b62b30fdfa29a985e2a1a625",
+  "core_reviewer_prompt_sha256": "43dfdde90a7851173646041ff1c0c1482693dc63922250d15e7cd7fa8529dc82",
+  "specialist_executor_prompt_sha256": "965b1a841699cf7f9962f029ad3dd5257f5a00b2a8f29a5f3b3d15ae5b6140c8",
+  "core_verifier_prompt_sha256": "412b1f65c9bcef62b5498cc7c7672a92fd7521f84e8130781a40778d351161d6",
+  "diagnostic_scorecard_prompt_sha256": "c64143e5f24dfd2dc723840387a79fcac3a10e3dff673af87cb03e459eee15ff",
+  "target_journal_calibrator_prompt_sha256": "6dc5315700cffa414095d095baf064ae4b277bb640a35de0879301486e77c7d4",
+  "evaluator_prompt_sha256": "0f570a53c17c8d677a371a9aa73cfdcf5849510aae42a740bdf4d60b05a6e516",
+  "adjudicator_prompt_sha256": "9e2d938006cba3cbab56bde9c271a8542adc42a1daad908d7870faee9df1d356",
+  "schemas_sha256": "56715307883ee4f462155928c1fa218614f659fc4d533af3ca4d03272a446bf2",
+  "benchmark_manifest_sha256": "48624c5183eaf27c7a0915e90c4577f0648552ce0c488151df462b965f6cd1b3",
+  "benchmark_gold_sha256": "6597eab2fe66a6493cf01653a0b8cc1137936bca7dad4a1f21c43ff4941b2a4f",
+  "success_criteria_sha256": "2f9e37d436a93773df304c7ce9412d70626f84cdb02054ab91e118ab42d35a81",
+  "runtime_code_sha256": "9bc68c3da16494d7741655b9d321703ff027746787fcf5600d58c0335434a4fb",
+  "runtime_defaults_sha256": "c1715b059b13773fcfcefbab117efbeb28e736845a224c31f1d147716a1e646e",
+  "benchmark_profiles_sha256": "b3296e5bbe1c1a30770daf0f4ab6fdb09e44692a431135995424ad73d5ed1d7a",
+  "journal_profile_templates_sha256": "71a230185e980cf14f948052a653490cee53a72ffcf879c4cc8973e1518ab9f6",
+  "temperature": 0.0,
+  "required_model_configuration_fields": [
+    "review_model",
+    "verifier_model",
+    "judge_model_a",
+    "judge_model_b",
+    "adjudicator_model"
+  ],
+  "required_search_configuration_fields": [
+    "search_backend",
+    "scholarly_providers"
+  ]
+}

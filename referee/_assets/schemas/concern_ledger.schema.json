@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RevisionConcernLedger",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "concern_id",
+      "previous_concern",
+      "status"
+    ],
+    "properties": {
+      "concern_id": {
+        "type": "string"
+      },
+      "previous_concern": {
+        "type": "string"
+      },
+      "author_response": {
+        "type": "string"
+      },
+      "verified_change": {
+        "type": "string"
+      },
+      "new_evidence": {
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "fully_resolved",
+          "substantially_resolved",
+          "partially_resolved",
+          "responded_but_unresolved",
+          "not_addressed",
+          "made_worse",
+          "unassessable"
+        ]
+      },
+      "closure_criterion": {
+        "type": "string"
+      },
+      "remaining_risk": {
+        "type": "string"
+      }
+    }
+  }
+}

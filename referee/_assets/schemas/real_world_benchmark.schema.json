@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"real_world_benchmark.schema.json",
+  "title":"Referee adjudicated real-paper benchmark row",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["paper_id","manuscript_path","domain","atomic_concerns"],
+  "properties":{
+    "paper_id":{"type":"string"},
+    "manuscript_path":{"type":"string"},
+    "domain":{"type":"string"},
+    "atomic_concerns":{"type":"array","items":{"type":"object","required":["concern_id","title","severity","location","expert_agreement","acceptable_closure"],"properties":{"concern_id":{"type":"string"},"title":{"type":"string"},"category":{"type":["string","null"]},"severity":{"enum":["critical","major","minor","note"]},"location":{"type":"string"},"failure_mechanism":{"type":["string","null"]},"scientific_consequence":{"type":["string","null"]},"expert_agreement":{"type":"object"},"alternative_interpretations":{"type":"array"},"acceptable_closure":{"type":"string"}},"additionalProperties":false}}
+  }
+}

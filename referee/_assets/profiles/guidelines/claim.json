@@ -1,0 +1,47 @@
+{
+  "name": "CLAIM family",
+  "routing_terms": [
+    "medical imaging",
+    "radiology",
+    "deep learning imaging",
+    "image classification"
+  ],
+  "authoritative_checklist_required": true,
+  "signal_checks": [
+    {
+      "id": "dataset",
+      "label": "dataset partitions",
+      "terms": [
+        "training",
+        "validation",
+        "test set"
+      ]
+    },
+    {
+      "id": "reference",
+      "label": "reference standard",
+      "terms": [
+        "reference standard",
+        "ground truth"
+      ]
+    },
+    {
+      "id": "model",
+      "label": "model specification",
+      "terms": [
+        "architecture",
+        "hyperparameter"
+      ]
+    },
+    {
+      "id": "performance",
+      "label": "performance",
+      "terms": [
+        "auc",
+        "sensitivity",
+        "specificity"
+      ]
+    }
+  ],
+  "note": "This profile is a routing aid, not a substitute for the current authoritative reporting guideline."
+}
