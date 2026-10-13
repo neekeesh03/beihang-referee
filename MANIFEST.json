@@ -1,6 +1,6 @@
 {
   "name": "Beihang Referee",
-  "build_date": "2026-10-08",
+  "build_date": "2026-10-13",
   "description": "Evidence-grounded agentic peer review for scientific manuscripts",
   "skills": 56,
   "agents": 24,
@@ -92,7 +92,7 @@
     },
     {
       "path": "README.md",
-      "size": 14570
+      "size": 17466
     },
     {
       "path": "SECURITY.md",
