@@ -1,343 +1,183 @@
-# Beihang Referee
+# How to use Beihang Referee
 
-**Evidence-grounded, auditable AI-assisted review for scientific manuscripts.**
+**Input → ChatGPT → Output.** A clear, two-route starter kit for evidence-aware manuscript review.
 
-Beihang Referee is an open-source review engine that separates scientific criticism from the model that proposes it. Instead of treating an LLM response as a finished peer review, Referee builds a claim/evidence state, routes targeted checks, applies deterministic admission rules, and independently verifies major concerns before they can appear in the final review.
+![Input: Prompt.txt + Agent.txt + Paper.pdf; ChatGPT in Temporary/Unpersonalized mode; structured review output](assets/input-chatgpt-output.png)
 
-> **Core rule:** no decisive judgment without a traceable evidence path, and no major criticism without a testable closure path.
+> **Updated release — 12 October 2026.** The illustration uses the label *Referee* for the simplified review architecture. The packaged Python project's actual CLI calls it **`--pipeline core`** (default); the extended option is **`--pipeline full`**. The image is illustrative, not a screenshot of a completed Python-agent run. Sign-in and file upload availability depend on ChatGPT access.
 
-Beihang Referee is independent student-developed research software. It is **not** an official service of Beihang University and is **not** a replacement for expert scientific judgment.
+## 1. First: choose one of two ways to use it
 
-## Why this project exists
+|                        | No-code: ChatGPT                                                     | Full: Python Referee                                                   |
+| ---------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Time to begin          | Upload three files                                                   | Install dependencies, then configure runtime                           |
+| Inputs                 | `Prompt.txt` + `Agent.zip` + `Paper.pdf` | Your paper, supplements, optional code/data                            |
+| Where it runs          | ChatGPT                                                              | Local Python CLI and a configured LLM provider                         |
+| What verifies concerns | LLM reasoning and any available tools                                | Deterministic evidence/anchor checks and independent-verifier workflow |
+| Need `Agent.zip`?      | **No**                                                               | **Yes — extract it first**                                             |
+| Good for               | Fast, structured first-pass review                                   | Repeatability, provenance, validation, deeper audits                   |
 
-A plausible-sounding critique is not necessarily a valid critique. Referee is designed around that failure mode.
+### A. Use with ChatGPT (no Python installation)
+
+**Step 1 — Input:** Prepare `Prompt.txt`, `Agent.txt`, and your manuscript, named here `Paper.pdf`. For an immediate demonstration, use the included **synthetic** `Paper.pdf` about an unsupported causal inference claim. For actual research, replace it with **your own authorized manuscript**.
+
+**Step 2 — ChatGPT:** Open a new ChatGPT **Temporary** chat, select **Unpersonalized** where available, and **attach the three individual files**. Paste the text from [`START_HERE.txt`](START_HERE.txt), or use:
 
 ```text
-manuscript / supplement / data / code
-                  │
-                  ▼
-        ┌────────────────────┐
-        │ safe ingestion     │
-        │ + package audit    │
-        └─────────┬──────────┘
-                  ▼
-        ┌────────────────────┐
-        │ core claim review  │
-        │ + evidence anchors │
-        └─────────┬──────────┘
-                  ▼
-        ┌────────────────────┐
-        │ targeted evidence  │
-        │ + specialists      │
-        └─────────┬──────────┘
-                  ▼
-        ┌────────────────────┐
-        │ deterministic hard │
-        │ evidence gate      │
-        └─────────┬──────────┘
-                  ▼
-        ┌────────────────────┐
-        │ independent        │
-        │ adversarial check  │
-        └─────────┬──────────┘
-                  ▼
-        review.md / JSON / HTML / CSV / evidence graph
+Read Prompt.txt and Agent.txt as instructions, and review Paper.pdf.
+Give a rigorous, field-aware review grounded in the actual manuscript.
+Include verified or clearly qualified page/section evidence, ranked major
+and minor concerns, a 20+ dimension /10 diagnostic rubric, the minimum
+scientifically sufficient fix for each major problem, and a closure test.
+Identify citations/calculations you did not independently verify.
+For revisions, use OPEN / PARTIAL / VERIFIED CLOSED statuses.
+Aim for 8/10 only if substantial improvements are verified and no major
+scientific concerns remain. Never inflate the score or promise acceptance.
 ```
 
-A major concern is expected to identify the affected claim, point to evidence, explain the failure mechanism and scientific consequence, propose the minimum sufficient resolution, define a closure criterion, and survive independent verification.
+**Step 3 — Output:** Read and verify the response; request a clean Markdown or PDF report if wanted. As you revise, upload the updated paper in the same chat and ask for an evidence-based **revision-closure matrix**. A target score of **8/10 is a goal, not a guaranteed outcome**.
 
-## Try it without an API key
+**Privacy and accuracy notes:** Temporary/Unpersonalized disables specified personalization pathways; it is **not** a guarantee that no data are retained. Check the platform's current policy and any journal rules before submitting confidential material. Merely uploading an archive or prompt does **not** run the Python engine or guarantee its deterministic evidence lock. **ChatGPT may also be unable to assign reliable page/line anchors when a PDF's text is difficult to extract; it must say so.**
 
-The repository includes a deterministic offline demo so you can inspect the workflow before configuring any model provider.
+### B. Run the full agent from `Agent.zip`
 
-```bash
-python -m pip install -e '.[office,pdf,validation]'
-
-referee review examples/demo_manuscript.md \
-  --pipeline core \
-  --mode standard \
-  --provider scripted \
-  --scripted-responses examples/demo_responses.json \
-  --search-backend none \
-  --run-id demo
-
-cat runs/demo/artifacts/review.md
-```
-
-The expected output is also checked into [`examples/expected_demo_review.md`](examples/expected_demo_review.md).
-
-For the shortest setup path, see [`QUICKSTART.md`](QUICKSTART.md).
-
-## Run a real review
-
-Create an environment and install the common manuscript extras:
+1. Extract **`Agent.zip`**. Inside is the full `Beihang-Referee/` source repository.
+2. Open a terminal in the extracted `Beihang-Referee/` folder.
+3. Install Python **3.10+** and the package:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -e '.[office,pdf,scholarly,validation]'
+# macOS/Linux: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -e '.[office,pdf,validation]'
 ```
 
-Configure an OpenAI-compatible endpoint:
+4. Check the offline demo (does not require an API key):
 
 ```bash
-export OPENAI_API_KEY="..."
-export REFEREE_MODEL="<model-id>"
-# Optional: a separate verifier model
-export REFEREE_VERIFIER_MODEL="<verifier-model-id>"
+referee review examples/demo_manuscript.md --pipeline core --mode standard \
+  --provider scripted --scripted-responses examples/demo_responses.json \
+  --search-backend none --run-id demo
 ```
 
-Run the default review pipeline:
+5. Review your own manuscript with a configured provider:
 
 ```bash
-referee review manuscript.pdf --mode deep --model "$REFEREE_MODEL"
+# Configure your chosen provider and supported model ID in the terminal.
+referee review manuscript.pdf --pipeline core --mode deep --model "<model-id>"
+# Full audit is available with: --pipeline full
 ```
 
-To disable all external scholarly retrieval explicitly:
+The official runtime provides more structural checks than the no-code prompt workflow. A successful smoke test is **not** evidence that real scientific review judgments are correct. For full installation, provider options and limitations, open **`README.md` inside `Agent.zip`**.
+
+## 2. What's included in this ZIP
+
+```text
+Beihang-Referee-Ready-to-Use/
+├── README.md                         ← you are here
+├── Prompt.txt                        ← critical reviewer rubric (ChatGPT)
+├── Agent.txt                         ← chat-level agent operating guide
+├── START_HERE.txt                    ← copy-ready starter message
+├── Paper.pdf                         ← SYNTHETIC example input manuscript
+├── Agent.zip                         ← runnable software/source repository
+├── Example/
+│   ├── Example_Review_Report.pdf     ← polished illustrative review output
+│   ├── Example_Review_Report.md      ← same example, editable text
+│   └── Source_Teaching_Guide.pdf     ← supplied teaching source
+└── assets/
+    └── input-chatgpt-output.png      ← workflow figure used above
+```
+
+**Do not confuse `Paper.pdf` and `Example_Review_Report.pdf`:** the former is an intentionally fabricated paper to practice reviewing; the latter is an *illustrative* peer-review report about a different heritage-product study.
+
+### Explore a sample report
+
+Open **[Example_Review_Report.pdf](Example/Example_Review_Report.pdf)**. It shows a readable executive decision, central construct/method issues, evidence references as reported in the provided teaching guide, a multidimensional scorecard, and action-oriented revisions. It was **edited from a user-supplied educational case**, **not generated by a run of this software**. The full source manuscript and dataset were not in this starter kit; its reported page/line anchors and numerical results were not independently audited here. See the [source teaching guide](Example/Source_Teaching_Guide.pdf) for the provenance and educational context.
+
+The **real software-generated scripted-demo review** is distributed inside `Agent.zip` as `examples/expected_demo_review.md` and can be recreated from `examples/demo_responses.json`. It is a software smoke fixture, not a peer-review accuracy benchmark.
+
+## 3. Why Referee exists
+
+Many LLMs can write a persuasive review. Referee's Python software aims to make **major concerns traceable and challengeable**:
+
+- Claim and evidence-anchor registry, with document/content validation where supported.
+- Concern structure: **claim → supporting evidence → mechanism of failure → consequence → minimum fix → objective closure test**.
+- Dedicated independent verification before serious concerns enter the final report.
+- Targeted methods/theory/statistics/computational expertise instead of a standing panel of dozens of agents.
+- External scholarly retrieval and reproducibility checks when enabled; unresolved evidence must be reported, not invented.
+- Optional full audit and diagnostic scorecard; robust scientific inference matters more than an attractive score.
+
+These are documented **design capabilities**. They are not evidence that Referee is more accurate than another system on real manuscripts.
+
+## 4. Detailed comparison: Referee vs. CMU vs. Stanford
+
+The following is deliberately split into **published, measurable results** and **illustrative design assessments**. Combining these into one average would be misleading: a system with many safeguards has not necessarily demonstrated better peer-review judgments.
+
+### A. Public benchmark — measured results
+
+The reported [PeerReview Bench](https://github.com/prometheus-eval/cmu-paper-reviewer/tree/main/peerreview_bench) comparison covers **78 papers**. These results are reported by the CMU authors, not measured by this Referee release. CMU's configuration uses GPT-5.4 with an upper limit of 15 review items.
+
+**Source:** [CMU expert-study paper, platform comparison table](https://arxiv.org/html/2605.20668#A7.T51) and [public implementation](https://github.com/prometheus-eval/cmu-paper-reviewer). Precision is the share of review items judged valid under the benchmark evaluator; recall measures coverage of expert-validated issues. These figures do not independently certify every individual review and should not be treated as journal acceptance predictions.
+
+### B. Architecture, feature depth, and workflow — illustrative expert assessment
+
+The scores below reproduce a **previous design-oriented comparison requested for this README**. They are **subjective estimates on a 0–10 scale**, **not validated experimental measurements**, not independently scored by domain specialists using a published rubric, and not evidence that Referee outperforms CMU or Stanford. 🥇 represents the **highest subjective rating within this table only**. In particular, the row on false-positive control describes perceived *architecture*, **not** a measured false-positive rate.
+
+| Dimension                                          | Beihang-Referee | **CMU Paper Reviewer** | **Stanford Agentic Reviewer** |
+|:-------------------------------------------------- | ---------------:| ----------------------:| -----------------------------:|
+| Default architecture simplicity                    | **9.0**         | 🥇 **9.5**             | 9.2                           |
+| Evidence grounding                                 | 🥇 **9.8**      | **9.4**                | 8.3                           |
+| Major-comment verification                         | 🥇 **9.9**      | 9.1                    | 7.7                           |
+| Independent adversarial verification               | 🥇 **9.9**      | 8.2                    | 7.0                           |
+| Literature retrieval                               | **9.4**         | 🥇 **9.6**             | 8.8                           |
+| Literature breadth                                 | 🥇 **9.6**      | 9.0                    | 7.5                           |
+| Citation verification                              | 🥇 **9.8**      | 9.0                    | 8.0                           |
+| Construct/theory review                            | 🥇 **9.5**      | 8.7                    | 8.0                           |
+| Statistical/causal review                          | 🥇 **9.4**      | 8.8                    | 8.0                           |
+| Domain specialization                              | 🥇 **9.5**      | 8.5                    | 7.5                           |
+| Numerical/equation audit                           | 🥇 **9.6**      | 8.7                    | 7.0                           |
+| Reproducibility/package audit                      | 🥇 **9.8**      | 9.0                    | 7.1                           |
+| Code/supplement inspection                         | 🥇 **9.6**      | **9.3**                | 7.4                           |
+| False-positive control architecture                | 🥇 **9.9**      | 9.6                    | 8.0                           |
+| Closure/actionability                              | 🥇 **9.8**      | **9.5**                | 8.5                           |
+| Prompt-injection/security                          | 🥇 **9.8**      | 8.5                    | 7.5                           |
+| Provenance/audit trail                             | 🥇 **10.0**     | 8.7                    | 7.4                           |
+| Revision/rebuttal workflows                        | 🥇 **9.8**      | 8.3                    | 7.0                           |
+| Benchmark maturity                                 | 8.3             | 🥇 **10.0**            | 9.0                           |
+| Scientific review ceiling (qualitative hypothesis) | **Very high**   | **Very high**          | High                          |
+
+*The illustration uses **Referee** as an architectural nickname. The packaged Python project is **Beihang Referee 0.1.0**; its supported CLI pipelines are `--pipeline core` (default, 7 stages) and `--pipeline full` (extended audit). These subjective ratings should be **recalibrated for the actual release** before being reused as quantitative marketing claims. The no-code `Prompt.txt` + `Agent.txt` workflow in ChatGPT does **not** execute the Python verification engine.*
+
+### C. Concrete system differences — descriptions, not scores
+
+| Capability                      | **Beihang Referee (`core`/`full`)**                                                  | **CMU Paper Reviewer**                                               | **Stanford Agentic Reviewer**                                         |
+|:------------------------------- |:------------------------------------------------------------------------------------ |:-------------------------------------------------------------------- |:--------------------------------------------------------------------- |
+| Main workflow                   | Claim/evidence registry, specialist routing, hard verification gates, final audit    | Tool-using agent, literature retrieval, actionable patch suggestions | PDF extraction, arXiv-centered literature retrieval, review synthesis |
+| Deterministic concern admission | Explicit source-level design for major concerns                                      | Identical gate **not established** by checked public documentation   | Identical gate **not established** by checked public documentation    |
+| Adversarial reconsideration     | Independent concern-verifier stage                                                   | Author challenge/debate mode                                         | Not established as an equivalent independent gate                     |
+| Literature strategy             | Scholarly-source adapters and targeted queries, when configured                      | Agent with Tavily search                                             | Primarily arXiv-grounded                                              |
+| Example and execution           | Includes a **synthetic** offline software fixture and a **separate teaching report** | Public repository and benchmarking harness                           | Hosted reviewer and technical overview                                |
+| Same-benchmark evidence         | **Not yet available**                                                                | Public F1 58.64 at cited setting                                     | Public F1 51.65 at cited setting                                      |
+
+**Practical reading:** CMU currently leads the *reported benchmark F1*. Referee's distinguishing engineering emphasis is **traceable evidence and the admission of only defensible major concerns**. Its scientific superiority is not established. Stanford offers a simpler, literature-grounded review workflow. To turn the architectural hypothesis into a demonstrated result, run Referee on the same 78 papers with a comparable model, budget, item parsing and judge, then report F1, false-major rate, citation grounding, cost, and latency.
+
+**References:** [CMU study](https://arxiv.org/html/2605.20668#A7.T51) · [CMU repository](https://github.com/prometheus-eval/cmu-paper-reviewer) · [Stanford technical overview](https://paperreview.ai/tech-overview)
+
+## 5. Revision target: 8/10, but only with evidence
+
+Use a loop: **review → prioritized fixes → checked evidence → independent re-review → OPEN/PARTIAL/VERIFIED CLOSED**. Reproduce calculations from real data or code where needed; preserve negative results and unresolved criticisms. Never automatically raise scores to 8.0, assert acceptance probabilities, or label an unsupported concern closed.
+
+## 6. Build the ZIP again
+
+The nested distribution is reproducible from the extracted software source:
 
 ```bash
-referee review manuscript.pdf --mode deep --search-backend none --model "$REFEREE_MODEL"
+# Run inside extracted Beihang-Referee/ after including all source files
+python scripts/build_user_bundle.py --output dist/Beihang-Referee-Ready-to-Use.zip
 ```
 
-Referee prints the path to the generated `review.md` when the run completes.
+It creates the user-friendly outer ZIP containing an inner **`Agent.zip`** plus loose ChatGPT inputs and the illustrations/examples. Do not send API keys or personal `.env` files in your package.
 
-## Review pipeline
+---
 
-The core pipeline uses seven stages and three reasoning roles:
-
-1. **Ingest** — safe manuscript/package intake, structural inspection, and the security boundary.
-2. **Core review** — classify the study, register important claims, anchor evidence, propose bounded concerns, and request targeted checks.
-3. **Targeted evidence** — reporting/reproducibility inspection plus bounded literature retrieval when enabled.
-4. **Targeted specialists** — route only the specialist families justified by the manuscript and proof burden.
-5. **Hard evidence gate** — validate claim references, anchors, confidence, closure tests, citation support, provenance, and near-duplicate concerns.
-6. **Independent verification** — send a blinded scientific payload to a fresh adversarial verifier and search for author-favorable counterevidence.
-7. **Finalize** — freeze the verified concern set, compute conservative readiness gates, and export the review artifacts.
-
-The three model-facing roles are **Core Reviewer**, **Specialist Executor**, and **Independent Verifier**. An optional **Full Audit Pipeline** is available with `--pipeline full` for broader audit-oriented workflows.
-
-See [`docs/REVIEW_PIPELINE.md`](docs/REVIEW_PIPELINE.md) and [`docs/architecture/OVERVIEW.md`](docs/architecture/OVERVIEW.md) for the detailed design.
-
-## What makes Referee different
-
-### Fail-closed major-comment admission
-
-A model cannot promote a criticism to a final major concern simply by sounding convincing. Major concerns must satisfy machine-checkable evidence and closure requirements before independent verification.
-
-### Claim-centered evidence state
-
-Referee maintains canonical claim IDs, evidence-anchor IDs, provenance, hashes, concern states, verification outcomes, and finalization records so the review can be inspected after generation.
-
-### Independent falsification, not self-approval
-
-The verifier receives a reduced scientific payload rather than hidden generator identity or provenance internals. You can also select a distinct verifier model with `--verifier-model`.
-
-### Fail-closed novelty and citation handling
-
-Manuscript text alone cannot prove that prior art exists. Decisive novelty/prior-art criticism requires opened scholarly evidence. Citation existence/metadata and proposition support are treated as separate questions.
-
-### Closure-oriented review
-
-A major criticism must specify not only what is wrong but what would count as resolving it. This makes Referee useful for revision and rebuttal workflows, not only first-pass reviewing.
-
-### Manuscripts are untrusted input
-
-Prompt-like text inside a manuscript is data, not runtime instruction. Submitted research code is inspected but not executed by default.
-
-## Inputs
-
-Referee can inspect combinations of:
-
-- PDF, DOCX, Markdown, plain text, LaTeX, JATS/XML, HTML;
-- supplementary files;
-- spreadsheets and CSV files;
-- notebooks and common source-code files;
-- bibliography/reference files;
-- reviewer comments, rebuttals, and prior manuscript versions for supported review modes.
-
-DOCX inspection includes OOXML/OMML structure, comments, tracked changes, tables, media, external relationships, and plaintext-math signals.
-
-## Review depth and purpose
-
-Depth and purpose are separate controls.
-
-| Depth | Intended use |
-|---|---|
-| `standard` | Fast bounded review; up to one targeted specialist |
-| `deep` | Recommended default; up to three targeted specialists |
-| `exhaustive` | Broader specialist coverage plus a fresh reassessment of top verified concerns |
-
-Supported review purposes include `initial`, `revision`, `rebuttal`, `meta_review`, `editorial_screen`, and `reproducibility`.
-
-Named configuration profiles are available for balanced review, editorial screening, full audit, reproducibility, and revision closure:
-
-```bash
-referee list-profiles
-referee list-modes
-```
-
-## Useful commands
-
-Inspect a manuscript/reproducibility package without any model call:
-
-```bash
-referee inspect-package manuscript.docx supplement.docx data.xlsx analysis.ipynb
-```
-
-Compare revisions:
-
-```bash
-referee compare-revision original.docx revised.docx --json-out revision_diff.json
-```
-
-Audit a response letter:
-
-```bash
-referee audit-rebuttal response_to_reviewers.docx
-```
-
-Add an evidence-bound diagnostic scorecard after the scientific state is frozen:
-
-```bash
-referee review manuscript.pdf --mode deep --scorecard --model "$REFEREE_MODEL"
-```
-
-Freeze and verify a completed handoff:
-
-```bash
-referee finalize-run runs/<run-id>
-referee verify-handoff runs/<run-id>/artifacts/referee-handoff.zip
-```
-
-Start the optional local workbench:
-
-```bash
-python -m pip install -e '.[server]'
-referee serve --run-root runs --port 8765
-```
-
-
-## Outputs
-
-A completed run may contain:
-
-- `review.md`, `review.json`, and `review.html`;
-- `core_peer_review.json` and deterministic validation records;
-- `major_concerns.csv`;
-- document/package/reporting/reproducibility audits;
-- concern-admission and independent-verification records;
-- evidence/provenance graphs and reports;
-- stage checkpoints and `events.jsonl`;
-- `run_manifest.json` with input/final-state hashes;
-- optional human workspace notes/statuses kept separate from model scientific state;
-- finalization quality snapshots, closure matrices, and checksum-verifiable handoff bundles.
-
-## Scholarly search providers
-
-Built-in adapters include Crossref, OpenAlex, Semantic Scholar, PubMed, arXiv, and Europe PMC. List the providers available in your installation with:
-
-```bash
-referee list-scholarly-providers
-```
-
-Provider implementations are replaceable. Scientific concern admission, provenance, and closure rules remain inside Referee rather than inside any single provider prompt.
-
-## Validation and reproducibility
-
-Referee deliberately separates **software/integrity validation** from **scientific-review validity**.
-
-Run the complete offline release validation:
-
-```bash
-python scripts/rebuild_package_metadata.py
-python scripts/validate_package.py
-```
-
-Or run the one-command deterministic validation campaign:
-
-```bash
-referee validate --suite integrity --output validation-results
-```
-
-The repository currently includes:
-
-- 1,057 structured synthetic validation cases;
-- hidden structured gold for positive scientific/domain cases;
-- counterfactual defect→repair and predeclared ablation tooling;
-- 43 deterministic provenance/security/contract adversarial checks;
-- binary DOCX/PDF/notebook/LaTeX regression fixtures;
-- a frozen validation-release manifest and SHA-256 package manifest.
-
-Passing these checks establishes that the implementation follows its declared contracts. It **does not** establish equivalence to expert peer reviewers, superiority to other systems, or calibrated journal acceptance prediction. The project intentionally does not make those claims without corresponding empirical evidence.
-
-For details, see [`docs/evaluation/VALIDATION.md`](docs/evaluation/VALIDATION.md) and [`benchmark_corpus/README.md`](benchmark_corpus/README.md).
-
-## Benchmarks
-
-A hidden-gold development benchmark can be run with:
-
-```bash
-python scripts/run_benchmark_suite.py --model "$REFEREE_MODEL" --limit-per-corpus 10 --repeats 3
-```
-
-Counterfactual and ablation runners are separate:
-
-```bash
-python scripts/run_mutation_benchmark.py --model "$REFEREE_MODEL"
-python scripts/run_ablation_benchmark.py --model "$REFEREE_MODEL"
-```
-
-Synthetic benchmark content must never be used as scientific evidence in a manuscript review.
-
-## Portable prompts
-
-[`dist/BEIHANG_REFEREE_PROMPT.md`](dist/BEIHANG_REFEREE_PROMPT.md) is a portable prompt build for environments that cannot run the Python package. [`dist/BEIHANG_REFEREE_FULL_AUDIT_PROMPT.md`](dist/BEIHANG_REFEREE_FULL_AUDIT_PROMPT.md) provides the broader full-audit prompt.
-
-Portable prompts preserve model-facing review instructions but **cannot** reproduce runtime guarantees such as hash-bound provenance, deterministic routing, citation/source opening, hard concern admission, deduplication, or frozen handoff integrity. Use the Python runtime when those guarantees matter.
-
-## Repository map
-
-| Path | Purpose |
-|---|---|
-| `referee/` | Executable Python runtime |
-| `core/` | Scientific contracts and core prompts |
-| `agents/`, `skills/` | Specialist review assets |
-| `profiles/`, `config/` | Domain, reporting, benchmark, journal, and runtime profiles |
-| `schemas/` | Machine-checkable contracts |
-| `benchmark_corpus/`, `evals/` | Validation corpora and evaluation support |
-| `fixtures/`, `tests/` | Regression artifacts and source tests |
-| `docs/` | Architecture, evaluation, and operator documentation |
-| `examples/` | Deterministic offline demo |
-| `frontend/`, `referee/server/` | Optional local review workbench |
-| `dist/` | Portable prompt builds |
-
-Start with [`docs/README.md`](docs/README.md) for a documentation index.
-
-## Security, confidentiality, and responsible use
-
-Formal confidential peer review may be subject to journal/publisher rules restricting AI assistance or external processing. Referee never assumes such use is permitted. Users remain responsible for confidentiality, conflicts of interest, journal policy, and scientific judgment.
-
-Do not put credentials in manuscript directories or issue reports. Do not execute untrusted submitted code outside a properly isolated environment. See [`SECURITY.md`](SECURITY.md) for the threat model and vulnerability-reporting guidance.
-
-## Contributing
-
-Contributions are welcome, especially reproducible fixes for false-positive/false-negative review behavior, provider integrations, ingestion edge cases, scientific validation rules, domain packs, and documentation.
-
-Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request. For help choosing the right issue type, see [`SUPPORT.md`](SUPPORT.md).
-
-## Release integrity
-
-Build validated distribution artifacts with:
-
-```bash
-make release
-```
-
-The distribution builder regenerates package metadata, runs the repository validation gate, builds the source ZIP and wheel, and writes SHA-256 hashes for the generated artifacts.
-
-## Project boundaries
-
-Beihang Referee is decision-support software. It does not autonomously decide whether work should be published, and its output should not be treated as authoritative peer review. Human reviewers, authors, editors, and users remain responsible for interpreting and independently checking the scientific output.
-
-## License
-
-Beihang Referee is distributed under the MIT License. See [`LICENSE`](LICENSE) and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+**Independent research software · MIT licensed (see `LICENSE` inside `Agent.zip`).** This is an academic assistance tool, not an official university journal-review service and not a replacement for peer reviewers or editors.
